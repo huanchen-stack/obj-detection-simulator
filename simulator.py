@@ -44,8 +44,19 @@ class Simulator(object):
             for name in list(self.layers.keys()):
                 self.priorities[name] = 1
 
-        self.partition(part_filename)
+        self.load_partitions(part_filename)  # Intermediate result of partition, now load from handcoded csv
+        # self.partition(part_filename)
         a = 1  # check status for testing
+
+        print(self.device_names)
+        for device in list(self.devices.values()):
+            print(device.name)
+            print(device.assigned_layer)
+        for layer in list(self.layers.values()):
+            print(layer.name, layer.device_id)
+            # print(layer.next)
+            # print(layer.dependencies)
+        print(self.priorities)
 
         self.simulate()
 
@@ -70,12 +81,23 @@ class Simulator(object):
             # TODO: Here size is with layers. If necessary, can be with dependencies.
             self.layers[src].size = size
 
+    def load_priorities(self, priority_filename):
+        priorities = pd.read_csv(priority_filename).values.tolist()
+        for layername, priority in priorities:
+            self.priorities[layername] = priority
+
+    def load_partitions(self, part_filename):
+        partitions = pd.read_csv(part_filename).values.tolist()
+        for layername, device_id in partitions:
+            self.layers[layername].device_id = str(device_id)
+            self.devices[str(device_id)].assigned_layer.append(layername)
+
     def go_through_path(self, layer_name, device_idx):
         # TODO: Perhaps only keep one of the following two lines
         if self.layers[layer_name].device_id is None:
             # if not assigned yet (see case 02)
             self.layers[layer_name].device_id = self.device_names[device_idx]
-            self.devices[self.device_names[device_idx]].assigned_layer.append(layer_name)
+            self.devices[self.device_names[device_idx]].append(layer_name)
         if layer_name == "output":
             return
         elif layer_name in self.cut_points.keys():
@@ -114,7 +136,13 @@ class Simulator(object):
         """
         time_sum = start_time
         device = self.devices[device_id]
+        print("running")
+        print(device.assigned_layer)
         for layer_name in device.assigned_layer:
+
+            print(device.assigned_layer)
+            print("exploring layer: ", layer_name)
+
             cur_layer = self.layers[layer_name]
             for dep in cur_layer.dependencies:
                 if not self.layers[dep].completed:
@@ -125,7 +153,16 @@ class Simulator(object):
                 time_sum = max(cur_layer.arrival_time_pool)
             time_sum += device.time[layer_name]
             cur_layer.completed = True
+            
+            print("cur_layer:", cur_layer.name)
+            # device.assigned_layer.remove(layer_name)
+
             # TODO: next priority
+
+            print(cur_layer.next)
+            cur_layer.next = sorted(cur_layer.next, key=lambda e:self.priorities[e], reverse=True)
+            print(cur_layer.next)
+
             for next_layer_name in cur_layer.next:
                 if next_layer_name == "output":
                     print("{:<15} {:<15}".format(layer_name, time_sum))
