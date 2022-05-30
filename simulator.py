@@ -112,7 +112,7 @@ class Simulator(object):
         Update device current time.
         Returns the next layers.
         """
-        sum = 0
+        time_sum = 0
         device = self.devices[device_id]
         for layer_name in device.assigned_layer:
             cur_layer = self.layers[layer_name]
@@ -120,17 +120,19 @@ class Simulator(object):
                 if not self.layers[dep].completed:
                     # cease exec
                     return
-            sum += device.time[layer_name]
+            time_sum += device.time[layer_name]
             cur_layer.completed = True
+            # TODO: next priority
             for next_layer_name in cur_layer.next:
                 if next_layer_name == "output":
-                    print("{:<15} {:<15}".format(layer_name, start_time + sum))
+                    print("{:<15} {:<15}".format(layer_name, start_time + time_sum))
                     device.assigned_layer.pop()
                     continue
                 if self.layers[next_layer_name].device_id != device_id:
+                    # TODO: is_parallel
                     transfer_latency = self.bandwidth * self.layers[layer_name].size
                     # change device
-                    self.device_exec(self.layers[next_layer_name].device_id, start_time + sum + transfer_latency)
+                    self.device_exec(self.layers[next_layer_name].device_id, start_time + time_sum + transfer_latency)
 
     def simulate(self):
         """
