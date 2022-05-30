@@ -2,9 +2,10 @@ import pandas as pd
 
 class Device(object):
 
-    def __init__(self, name, prof_filename):
+    def __init__(self, name, prof_filename, parallel=False):
         super().__init__()
         self.name = name
+        self.parallel = parallel
         self.profile = {}  # Dictionary of Dictionary: layername -> two/three entries
         self.time = {}  # Dictionary of Time: layername -> time
         self.cache = set()  # Set of cached data

@@ -14,3 +14,5 @@ class Layer(object):
 
         # Updated after partitions
         self.device_id = None
+
+        self.arrival_time_pool = []
