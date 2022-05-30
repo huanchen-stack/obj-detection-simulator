@@ -11,4 +11,4 @@ class Layer(object):
         self.next = []  # all destinations from this layer
 
         # Updated after partitions
-        self.device_id = None 
+        self.device_id = None

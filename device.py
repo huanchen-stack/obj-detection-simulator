@@ -1,3 +1,5 @@
+import pandas as pd
+
 class Device(object):
 
     def __init__(self, name, prof_filename):
@@ -16,4 +18,8 @@ class Device(object):
             layername, time, cpu_mem\n
             or layername, time, cpu_mem, cuda_mem\n
         """
-        pass
+        prof_df_list = pd.read_csv(prof_filename).values.tolist()
+        for entry in prof_df_list:
+            if entry[0] not in self.time.keys():
+                self.time[entry[0]] = 0.0
+            self.time[entry[0]] = entry[1]
