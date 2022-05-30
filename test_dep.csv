@@ -1,8 +1,8 @@
-src,dst
-input,layer1
-layer1,layer2
-layer2,layer3
-layer2,layer4
-layer3,layer5
-layer4,output
-layer5,output
+src,dst,size
+input,layer1,1
+layer1,layer2,1
+layer2,layer3,1
+layer2,layer4,1
+layer3,layer5,1
+layer4,output,1
+layer5,output,1

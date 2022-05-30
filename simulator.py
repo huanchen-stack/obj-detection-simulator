@@ -52,23 +52,28 @@ class Simulator(object):
     def load_dependencies(self, dep_filename):
         """
         Dependencies file has the following format for each line:
-            source, destination (temporarily remove shape and size)
+            source, destination, size (temporarily remove shape)
         Use source layer name as the name of the data
         Update Layer's dependencies and next lists
         """
-        df_list = pd.read_csv(dep_filename).values.tolist()  # a 4d list of the above info (TODO: untested)
+        df_list = pd.read_csv(dep_filename).values.tolist()
         for entry in df_list:
             src = entry[0]
             dst = entry[1]
+            size = entry[2]
             if src not in self.layers.keys():
                 self.layers[src] = Layer(src)
             if dst not in self.layers.keys():
                 self.layers[dst] = Layer(dst)
             self.layers[src].next.append(dst)
             self.layers[dst].dependencies.append(src)
+            # TODO: Here size is with layers. If necessary, can be with dependencies.
+            self.layers[src].size = size
 
     def go_through_path(self, layer_name, device_idx):
+        # TODO: Perhaps only keep one of the following two lines
         self.layers[layer_name].device_id = self.device_names[device_idx]
+        self.devices[self.device_names[device_idx]].assigned_layer.append(layer_name)
         if layer_name == "output":
             return
         elif layer_name in self.cut_points.keys():
@@ -86,7 +91,7 @@ class Simulator(object):
     def partition(self, part_filename):
         """
         Partition this graph. Assign every layer to a specific device.
-        (for now, use a global var as the name of file that stores partition info)
+        Assuming cut points are specified by two vertices.
         """
         if part_filename is None:
             # end to end on one device
@@ -99,6 +104,31 @@ class Simulator(object):
                     self.cut_points[entry[0]] = []
                 self.cut_points[entry[0]].append(entry[1])
             self.go_through_path("input", 0)
+
+    def device_exec(self, device_id, start_time):
+        """
+        Update device current time.
+        Returns the next layers.
+        """
+        sum = 0
+        device = self.devices[device_id]
+        for layer_name in device.assigned_layer:
+            cur_layer = self.layers[layer_name]
+            for dep in cur_layer.dependencies:
+                if not self.layers[dep].completed:
+                    # cease exec
+                    return
+            sum += device.time[layer_name]
+            cur_layer.completed = True
+            for next_layer_name in cur_layer.next:
+                if next_layer_name == "output":
+                    print("{:<15} {:<15}".format(layer_name, start_time + sum))
+                    device.assigned_layer.pop()
+                    continue
+                if self.layers[next_layer_name].device_id != device_id:
+                    transfer_latency = self.bandwidth * self.layers[layer_name].size
+                    # change device
+                    self.device_exec(self.layers[next_layer_name].device_id, start_time + sum + transfer_latency)
 
     def simulate(self):
         """
@@ -116,4 +146,6 @@ class Simulator(object):
                 add current device idx,
                 send data to the current device (check if cached already)
         """
-        pass
+
+        # start with device idx == 0
+        self.device_exec(self.device_names[0], 0)

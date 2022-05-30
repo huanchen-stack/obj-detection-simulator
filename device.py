@@ -10,6 +10,8 @@ class Device(object):
         self.cache = set()  # Set of cached data
         self.cur_time = None
 
+        self.assigned_layer = []
+
         self.load_profile(prof_filename)
 
     def load_profile(self, prof_filename):
