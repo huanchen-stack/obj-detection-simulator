@@ -72,8 +72,10 @@ class Simulator(object):
 
     def go_through_path(self, layer_name, device_idx):
         # TODO: Perhaps only keep one of the following two lines
-        self.layers[layer_name].device_id = self.device_names[device_idx]
-        self.devices[self.device_names[device_idx]].assigned_layer.append(layer_name)
+        if self.layers[layer_name].device_id is None:
+            # if not assigned yet (see case 02)
+            self.layers[layer_name].device_id = self.device_names[device_idx]
+            self.devices[self.device_names[device_idx]].assigned_layer.append(layer_name)
         if layer_name == "output":
             return
         elif layer_name in self.cut_points.keys():
@@ -146,6 +148,6 @@ class Simulator(object):
                 add current device idx,
                 send data to the current device (check if cached already)
         """
-
+        print("{:<15} {:<15}".format("layer_name", "final time"))
         # start with device idx == 0
         self.device_exec(self.device_names[0], 0)
