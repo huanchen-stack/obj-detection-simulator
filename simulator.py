@@ -47,7 +47,6 @@ class Simulator(object):
 
         self.load_partitions(part_filename)  # Intermediate result of partition, now load from handcoded csv
         # self.partition(part_filename)
-        a = 1  # check status for testing
 
         print(self.device_names)
         for device in list(self.devices.values()):
@@ -97,7 +96,7 @@ class Simulator(object):
         if self.layers[layer_name].device_id is None:
             # if not assigned yet (see case 02)
             self.layers[layer_name].device_id = self.device_names[device_idx]
-            self.devices[self.device_names[device_idx]].append(layer_name)
+            self.devices[self.device_names[device_idx]].assigned_layer.append(layer_name)
         if layer_name == "output":
             return
         elif layer_name in self.cut_points.keys():
@@ -146,10 +145,13 @@ class Simulator(object):
                 if not self.layers[dep].completed:
                     cur_layer.arrival_time_pool.append(device.cur_time)
                     # cease exec
+                    print(f"Dependencies not satisfied. Ceasing at {device.cur_time} on device {device.name}")
                     return
             if len(cur_layer.arrival_time_pool) > 0:
                 cur_layer.arrival_time_pool.append(device.cur_time)
                 device.cur_time = max(cur_layer.arrival_time_pool)
+                print(f"Dependencies now satisfied. Resuming at {device.cur_time} on device {device.name}")
+
             device.cur_time += device.time[start_layer_name]
             cur_layer.completed = True
 
@@ -191,8 +193,9 @@ class Simulator(object):
                 send data to the current device (check if cached already)
         """
         # start with device idx == 0
-        self.device_exec("0", 0, "input")
-        print("=========================")
-        print("{:<15} {:<15}".format("layer", "time"))
+        self.device_exec("0", 0, "layer1")
+        self.device_exec("1", 0, "layer4")
+        print("\n=========Result=========")
+        print("{:<15} {:<15}".format("output_layer", "time"))
         for key, value in self.result.items():
             print("{:<15} {:<15}".format(key, value))
