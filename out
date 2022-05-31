@@ -1,0 +1,76 @@
+['0', '1', '2', '3']
+Device name: 0, with layers: ['input', 'layer1', 'layer2', 'layer3']
+Device name: 1, with layers: ['layer4']
+Device name: 2, with layers: ['layer5', 'layer6']
+Device name: 3, with layers: ['layer7', 'output']
+layer           device         
+input           0              
+layer1          0              
+layer2          0              
+layer3          0              
+layer4          1              
+layer5          2              
+layer7          3              
+layer6          2              
+output          3              
+Layer priority: {'input': 1, 'layer1': 1, 'layer2': 1, 'layer3': 1, 'layer4': 1, 'layer5': 1, 'layer6': 1, 'layer7': 1, 'output': 1}
+
+Device 0 is running: input, starting at time 0
+Finishing at time 0
+Next layers: ['layer1']
+Sorted next layers: ['layer1']
+
+Device 0 is running: layer1, starting at time 0
+Finishing at time 1
+Next layers: ['layer2']
+Sorted next layers: ['layer2']
+
+Device 0 is running: layer2, starting at time 1
+Finishing at time 3
+Next layers: ['layer3', 'layer4']
+Sorted next layers: ['layer3', 'layer4']
+
+Device 0 is running: layer3, starting at time 3
+Finishing at time 6
+Next layers: ['layer5']
+Sorted next layers: ['layer5']
+Sending data to device 2, latency 200
+
+Device 2 is running: layer5, starting at time 206
+Finishing at time 211
+Next layers: ['layer6']
+Sorted next layers: ['layer6']
+
+Device 2 is running: layer6, starting at time 211
+Finishing at time 217
+Next layers: ['layer7']
+Sorted next layers: ['layer7']
+Sending data to device 3, latency 200
+
+Device 3 is running: layer7, starting at time 417
+Dependencies not satisfied. Ceasing at 417 on device 3
+Sending data to device 1, latency 200
+
+Device 1 is running: layer4, starting at time 206
+Finishing at time 210
+Next layers: ['layer7']
+Sorted next layers: ['layer7']
+Sending data to device 3, latency 200
+
+Device 3 is running: layer7, starting at time 410
+Dependencies now satisfied. Arrival time pool: [417, 410]
+Resuming at 417 on device 3
+Finishing at time 424
+Next layers: ['output']
+Sorted next layers: ['output']
+
+=========Time Result=========
+output_layer    time           
+layer7          424            
+
+=========Mem Result=========
+device          cpu sum         cpu peak        cuda sum        cuda peak      
+0               4.0             1               4.0             1              
+1               1.0             1               1.0             1              
+2               2.0             1               2.0             1              
+3               1.0             1               1.0             1              

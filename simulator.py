@@ -197,7 +197,11 @@ class Simulator(object):
 
         self.device_exec("0", 0, "input")
 
-        print("\n=========Result=========")
+        print("\n=========Time Result=========")
         print("{:<15} {:<15}".format("output_layer", "time"))
         for key, value in self.time_result.items():
             print("{:<15} {:<15}".format(key, value))
+        print("\n=========Mem Result=========")
+        print("{:<15} {:<15} {:<15} {:<15} {:<15}".format("device", "cpu sum", "cpu peak", "cuda sum", "cuda peak"))
+        for name, device in self.devices.items():
+            device.get_mem_consumption()

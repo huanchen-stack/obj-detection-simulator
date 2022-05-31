@@ -1,14 +1,16 @@
 import pandas as pd
-
+from layer import Layer
 
 class Device(object):
 
-    def __init__(self, name, prof_filename, parallel=False):
+    def __init__(self, name, prof_filename, parallel=True):
         super().__init__()
         self.name = name
         self.parallel = parallel
         self.profile = {}  # Dictionary of Dictionary: layername -> two/three entries
         self.time = {}  # Dictionary of Time: layername -> time
+        self.cpu_mem = {}  # Dictionary of Mem (cpu)
+        self.cuda_mem = {}
         self.cache = set()  # Set of cached data
         self.cur_time = None
 
@@ -19,11 +21,21 @@ class Device(object):
     def load_profile(self, prof_filename):
         """
         Profiling file has the following format for each line:
-            layername, time, cpu_mem\n
             or layername, time, cpu_mem, cuda_mem\n
         """
         prof_df_list = pd.read_csv(prof_filename).values.tolist()
-        for entry in prof_df_list:
-            if entry[0] not in self.time.keys():
-                self.time[entry[0]] = 0.0
-            self.time[entry[0]] = entry[1]
+        for layername, time, cpu_mem, cuda_mem in prof_df_list:
+            self.time[layername] = time
+            self.cpu_mem[layername] = cpu_mem
+            self.cuda_mem[layername] = cuda_mem
+
+    def get_mem_consumption(self):
+        cpu_peak, cpu_sum = 0.0, 0.0
+        cuda_peak, cuda_sum = 0.0, 0.0
+        for layername in self.assigned_layer:
+            cpu_sum += self.cpu_mem[layername]
+            cuda_sum += self.cuda_mem[layername]
+            cpu_peak = cpu_peak if self.cpu_mem[layername] < cpu_peak else self.cpu_mem[layername]
+            cuda_peak = cuda_peak if self.cuda_mem[layername] < cuda_peak else self.cuda_mem[layername]
+
+        print("{:<15} {:<15} {:<15} {:<15} {:<15}".format(self.name, cpu_sum, cpu_peak, cuda_sum, cuda_peak))
