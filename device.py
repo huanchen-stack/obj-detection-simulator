@@ -1,8 +1,9 @@
 import pandas as pd
 
+
 class Device(object):
 
-    def __init__(self, name, prof_filename, parallel=True):
+    def __init__(self, name, prof_filename, parallel=False):
         super().__init__()
         self.name = name
         self.parallel = parallel

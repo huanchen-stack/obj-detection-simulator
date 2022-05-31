@@ -21,7 +21,9 @@ class Simulator(object):
         self.layers = {}  # Dictionary of Layer objects: layername -> Layer objects
         self.priorities = {}  # Dictionary of integers: layername -> integer
         self.cut_points = {}
-        self.result = {}
+
+        self.time_result = {}
+        self.mem_result = {}
 
         self.stack = []  # for DFS
         self.waiting_queue = []  # for DFS: when layer cannot be explored due to
@@ -30,7 +32,7 @@ class Simulator(object):
 
         # load and initialize devices
         if device_names is None:
-            # TODO: device 数量并不是用prof来决定
+            # TODO: should #device determined by prof?
             self.device_names = [str(i) for i in range(len(prof_filenames))]
         for name, prof_filename in zip(self.device_names, prof_filenames):
             self.devices[name] = Device(name, prof_filename)
@@ -50,9 +52,9 @@ class Simulator(object):
 
         print(self.device_names)
         for device in list(self.devices.values()):
-            # TODO: 现在exec和assigned layers没什么关系了
+            # TODO: Now exec has not much to do with assigned layers
             print(f"Device name: {device.name}, with layers: {device.assigned_layer}")
-            print("{:<15} {:<15}".format("layer", "device"))
+        print("{:<15} {:<15}".format("layer", "device"))
         for layer in list(self.layers.values()):
             print("{:<15} {:<15}".format(layer.name, layer.device_id))
         print(f"Layer priority: {self.priorities}")
@@ -139,7 +141,7 @@ class Simulator(object):
             exit(1)
         else:
             print("")
-            print(f"Device {device.name} is running layer: {start_layer_name}")
+            print(f"Device {device.name} is running: {start_layer_name}, starting at time {device.cur_time}")
             cur_layer = self.layers[start_layer_name]
             for dep in cur_layer.dependencies:
                 if not self.layers[dep].completed:
@@ -150,35 +152,39 @@ class Simulator(object):
             if len(cur_layer.arrival_time_pool) > 0:
                 cur_layer.arrival_time_pool.append(device.cur_time)
                 device.cur_time = max(cur_layer.arrival_time_pool)
-                print(f"Dependencies now satisfied. Resuming at {device.cur_time} on device {device.name}")
+                print(f"Dependencies now satisfied. Arrival time pool: {cur_layer.arrival_time_pool}")
+                print(f"Resuming at {device.cur_time} on device {device.name}")
 
             device.cur_time += device.time[start_layer_name]
             cur_layer.completed = True
+            print(f"Finishing at time {device.cur_time}")
 
-            print(f"Current layer: {cur_layer.name}")
             print(f"Next layers: {cur_layer.next}")
             cur_layer.next = sorted(cur_layer.next, key=lambda e: self.priorities[e], reverse=True)
             print(f"Sorted next layers: {cur_layer.next}")
 
             for next_layer_name in cur_layer.next:
                 if next_layer_name == "output":
-                    self.result[start_layer_name] = device.cur_time
+                    self.time_result[start_layer_name] = device.cur_time
                     device.assigned_layer.pop()
                     continue
                 if self.layers[next_layer_name].device_id != device_id:
-                    transfer_latency = self.bandwidth * self.layers[next_layer_name].size
-                    # change device
+                    transfer_latency = self.bandwidth
+                    # transfer_latency = cur_layer.size / self.bandwidth
 
+                    print(f"Sending data to device {self.layers[next_layer_name].device_id}, latency {transfer_latency}")
+
+                    # change device
                     # for tail recursion
                     if not device.parallel:
                         device.cur_time += transfer_latency
                         self.device_exec(self.layers[next_layer_name].device_id,
-                                        device.cur_time,
-                                        next_layer_name)
+                                         device.cur_time,
+                                         next_layer_name)
                     else:
                         self.device_exec(self.layers[next_layer_name].device_id,
-                                        device.cur_time + transfer_latency,
-                                        next_layer_name)
+                                         device.cur_time + transfer_latency,
+                                         next_layer_name)
                     # if not device.parallel:
                     #     device.cur_time += transfer_latency
                 else:
@@ -186,9 +192,12 @@ class Simulator(object):
 
     def simulate(self):
         # start with device idx == 0
-        self.device_exec("0", 0, "layer1")
-        self.device_exec("1", 0, "layer4")
+        # self.device_exec("0", 0, "layer1")
+        # self.device_exec("1", 0, "layer4")
+
+        self.device_exec("0", 0, "input")
+
         print("\n=========Result=========")
         print("{:<15} {:<15}".format("output_layer", "time"))
-        for key, value in self.result.items():
+        for key, value in self.time_result.items():
             print("{:<15} {:<15}".format(key, value))

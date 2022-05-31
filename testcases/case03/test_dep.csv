@@ -1,0 +1,7 @@
+src,dst,size
+layer1,layer2,1
+layer1,layer3,1
+layer4,layer2,1
+layer4,layer3,1
+layer2,output,1
+layer3,output,1
