@@ -166,32 +166,25 @@ class Simulator(object):
                     device.assigned_layer.pop()
                     continue
                 if self.layers[next_layer_name].device_id != device_id:
-                    transfer_latency = self.bandwidth
+                    transfer_latency = self.bandwidth * self.layers[next_layer_name].size
                     # change device
-                    self.device_exec(self.layers[next_layer_name].device_id,
-                                     device.cur_time + transfer_latency,
-                                     next_layer_name)
+
+                    # for tail recursion
                     if not device.parallel:
                         device.cur_time += transfer_latency
+                        self.device_exec(self.layers[next_layer_name].device_id,
+                                        device.cur_time,
+                                        next_layer_name)
+                    else:
+                        self.device_exec(self.layers[next_layer_name].device_id,
+                                        device.cur_time + transfer_latency,
+                                        next_layer_name)
+                    # if not device.parallel:
+                    #     device.cur_time += transfer_latency
                 else:
                     self.device_exec(device.name, device.cur_time, next_layer_name)
 
     def simulate(self):
-        """
-        Similar to BFS, use self.stack to explore.
-        Check if the stack and waiting queue are both empty.
-        If a layer cannot be explored due to dependency or change of device,
-            put layername in waiting queue.
-        When stack is empty, check the waiting queue:
-            while the length of waiting queue still changes:
-                (otherwise we must change device),
-                pop out all layers that can be explored (by then),
-                sort them in ascending order of priorities,
-                add to the back of self.stack.
-            change device:
-                add current device idx,
-                send data to the current device (check if cached already)
-        """
         # start with device idx == 0
         self.device_exec("0", 0, "layer1")
         self.device_exec("1", 0, "layer4")

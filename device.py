@@ -2,7 +2,7 @@ import pandas as pd
 
 class Device(object):
 
-    def __init__(self, name, prof_filename, parallel=False):
+    def __init__(self, name, prof_filename, parallel=True):
         super().__init__()
         self.name = name
         self.parallel = parallel
