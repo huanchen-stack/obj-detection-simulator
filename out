@@ -296,248 +296,248 @@ Next layers: ['nk_maxpl1', 'nk_maxpl2', 'nk_maxpl3', 'nk_conv4']
 Sorted next layers: ['nk_maxpl1', 'nk_maxpl2', 'nk_maxpl3', 'nk_conv4']
 
 Device 0 is running: nk_maxpl1, starting at time 0.0217
-Finishing at time 0.1217
+Finishing at time 0.0217
 Next layers: ['nk_conv4']
 Sorted next layers: ['nk_conv4']
 
-Device 0 is running: nk_conv4, starting at time 0.1217
-Dependencies NOT satisfied. Ceasing at 0.1217 on device 0
+Device 0 is running: nk_conv4, starting at time 0.0217
+Dependencies NOT satisfied. Ceasing at 0.0217 on device 0
 Sending data to device 1, latency 0.0000
 
-Device 1 is running: nk_maxpl2, starting at time 0.1217
-Finishing at time 0.2217
+Device 1 is running: nk_maxpl2, starting at time 0.0217
+Finishing at time 0.0217
 Next layers: ['nk_conv4']
 Sorted next layers: ['nk_conv4']
 Sending data to device 0, latency 0.0000
 
-Device 0 is running: nk_conv4, starting at time 0.2217
-Dependencies NOT satisfied. Ceasing at 0.2217 on device 0
+Device 0 is running: nk_conv4, starting at time 0.0217
+Dependencies NOT satisfied. Ceasing at 0.0217 on device 0
 Sending data to device 2, latency 0.0000
 
-Device 2 is running: nk_maxpl3, starting at time 0.1217
-Finishing at time 0.2217
+Device 2 is running: nk_maxpl3, starting at time 0.0217
+Finishing at time 0.0217
 Next layers: ['nk_conv4']
 Sorted next layers: ['nk_conv4']
 Sending data to device 0, latency 0.0000
 
-Device 0 is running: nk_conv4, starting at time 0.2217
-Dependencies now satisfied. Arrival time pool: [0.1217, 0.2217, 0.2217]
-Resuming at 0.2217 on device 0
-Finishing at time 0.2219
+Device 0 is running: nk_conv4, starting at time 0.0217
+Dependencies now satisfied. Arrival time pool: [0.021700000000000004, 0.021700000000000004, 0.021700000000000004]
+Resuming at 0.0217 on device 0
+Finishing at time 0.0219
 Next layers: ['nk_conv5']
 Sorted next layers: ['nk_conv5']
 
-Device 0 is running: nk_conv5, starting at time 0.2219
-Finishing at time 0.2221
+Device 0 is running: nk_conv5, starting at time 0.0219
+Finishing at time 0.0221
 Next layers: ['nk_conv6']
 Sorted next layers: ['nk_conv6']
 
-Device 0 is running: nk_conv6, starting at time 0.2221
-Finishing at time 0.2223
+Device 0 is running: nk_conv6, starting at time 0.0221
+Finishing at time 0.0223
 Next layers: ['nk_conv7', 'hd_conv12']
 Sorted next layers: ['nk_conv7', 'hd_conv12']
 
-Device 0 is running: nk_conv7, starting at time 0.2223
-Finishing at time 0.2225
+Device 0 is running: nk_conv7, starting at time 0.0223
+Finishing at time 0.0225
 Next layers: ['nk_upspl1']
 Sorted next layers: ['nk_upspl1']
 
-Device 0 is running: nk_upspl1, starting at time 0.2225
-Finishing at time 0.2225
+Device 0 is running: nk_upspl1, starting at time 0.0225
+Finishing at time 0.0225
 Next layers: ['nk_conv9']
 Sorted next layers: ['nk_conv9']
 
-Device 0 is running: nk_conv9, starting at time 0.2225
-Dependencies NOT satisfied. Ceasing at 0.2225 on device 0
+Device 0 is running: nk_conv9, starting at time 0.0225
+Dependencies NOT satisfied. Ceasing at 0.0225 on device 0
 
-Device 0 is running: hd_conv12, starting at time 0.2225
-Dependencies NOT satisfied. Ceasing at 0.2225 on device 0
+Device 0 is running: hd_conv12, starting at time 0.0225
+Dependencies NOT satisfied. Ceasing at 0.0225 on device 0
 Sending data to device 1, latency 0.0000
 
-Device 1 is running: nk_conv8, starting at time 0.2225
-Finishing at time 0.2227
+Device 1 is running: nk_conv8, starting at time 0.0225
+Finishing at time 0.0227
 Next layers: ['nk_conv9']
 Sorted next layers: ['nk_conv9']
 Sending data to device 0, latency 0.0000
 
-Device 0 is running: nk_conv9, starting at time 0.2227
-Dependencies now satisfied. Arrival time pool: [0.22250000000000003, 0.22270000000000004]
-Resuming at 0.2227 on device 0
-Finishing at time 0.2229
+Device 0 is running: nk_conv9, starting at time 0.0227
+Dependencies now satisfied. Arrival time pool: [0.0225, 0.022699999999999998]
+Resuming at 0.0227 on device 0
+Finishing at time 0.0229
 Next layers: ['nk_conv10']
 Sorted next layers: ['nk_conv10']
 
-Device 0 is running: nk_conv10, starting at time 0.2229
-Finishing at time 0.2231
+Device 0 is running: nk_conv10, starting at time 0.0229
+Finishing at time 0.0231
 Next layers: ['nk_conv11']
 Sorted next layers: ['nk_conv11']
 
-Device 0 is running: nk_conv11, starting at time 0.2231
-Finishing at time 0.2233
+Device 0 is running: nk_conv11, starting at time 0.0231
+Finishing at time 0.0233
 Next layers: ['nk_conv12']
 Sorted next layers: ['nk_conv12']
 
-Device 0 is running: nk_conv12, starting at time 0.2233
-Finishing at time 0.2248
+Device 0 is running: nk_conv12, starting at time 0.0233
+Finishing at time 0.0248
 Next layers: ['nk_conv13']
 Sorted next layers: ['nk_conv13']
 
-Device 0 is running: nk_conv13, starting at time 0.2248
-Finishing at time 0.2250
+Device 0 is running: nk_conv13, starting at time 0.0248
+Finishing at time 0.0250
 Next layers: ['nk_conv14', 'hd_conv4']
 Sorted next layers: ['nk_conv14', 'hd_conv4']
 
-Device 0 is running: nk_conv14, starting at time 0.2250
-Finishing at time 0.2252
+Device 0 is running: nk_conv14, starting at time 0.0250
+Finishing at time 0.0252
 Next layers: ['nk_upspl2']
 Sorted next layers: ['nk_upspl2']
 
-Device 0 is running: nk_upspl2, starting at time 0.2252
-Finishing at time 0.2252
+Device 0 is running: nk_upspl2, starting at time 0.0252
+Finishing at time 0.0252
 Next layers: ['nk_conv16']
 Sorted next layers: ['nk_conv16']
 
-Device 0 is running: nk_conv16, starting at time 0.2252
-Dependencies NOT satisfied. Ceasing at 0.2252 on device 0
+Device 0 is running: nk_conv16, starting at time 0.0252
+Dependencies NOT satisfied. Ceasing at 0.0252 on device 0
 
-Device 0 is running: hd_conv4, starting at time 0.2252
-Dependencies NOT satisfied. Ceasing at 0.2252 on device 0
+Device 0 is running: hd_conv4, starting at time 0.0252
+Dependencies NOT satisfied. Ceasing at 0.0252 on device 0
 Sending data to device 1, latency 0.0000
 
-Device 1 is running: nk_conv15, starting at time 0.2252
-Finishing at time 0.2254
+Device 1 is running: nk_conv15, starting at time 0.0252
+Finishing at time 0.0254
 Next layers: ['nk_conv16']
 Sorted next layers: ['nk_conv16']
 Sending data to device 0, latency 0.0000
 
-Device 0 is running: nk_conv16, starting at time 0.2254
-Dependencies now satisfied. Arrival time pool: [0.22520000000000007, 0.22540000000000007]
-Resuming at 0.2254 on device 0
-Finishing at time 0.2256
+Device 0 is running: nk_conv16, starting at time 0.0254
+Dependencies now satisfied. Arrival time pool: [0.025199999999999993, 0.025399999999999992]
+Resuming at 0.0254 on device 0
+Finishing at time 0.0256
 Next layers: ['nk_conv17']
 Sorted next layers: ['nk_conv17']
 
-Device 0 is running: nk_conv17, starting at time 0.2256
-Finishing at time 0.2276
+Device 0 is running: nk_conv17, starting at time 0.0256
+Finishing at time 0.0276
 Next layers: ['nk_conv18']
 Sorted next layers: ['nk_conv18']
 
-Device 0 is running: nk_conv18, starting at time 0.2276
-Finishing at time 0.2278
+Device 0 is running: nk_conv18, starting at time 0.0276
+Finishing at time 0.0278
 Next layers: ['nk_conv19']
 Sorted next layers: ['nk_conv19']
 
-Device 0 is running: nk_conv19, starting at time 0.2278
-Finishing at time 0.2317
+Device 0 is running: nk_conv19, starting at time 0.0278
+Finishing at time 0.0317
 Next layers: ['nk_conv20']
 Sorted next layers: ['nk_conv20']
 
-Device 0 is running: nk_conv20, starting at time 0.2317
-Finishing at time 0.2319
+Device 0 is running: nk_conv20, starting at time 0.0317
+Finishing at time 0.0319
 Next layers: ['hd_conv1', 'hd_conv3']
 Sorted next layers: ['hd_conv1', 'hd_conv3']
 Sending data to device 1, latency 0.0000
 
-Device 1 is running: hd_conv1, starting at time 0.2319
-Finishing at time 0.2321
+Device 1 is running: hd_conv1, starting at time 0.0319
+Finishing at time 0.0321
 Next layers: ['hd_conv2']
 Sorted next layers: ['hd_conv2']
 
-Device 1 is running: hd_conv2, starting at time 0.2321
-Finishing at time 0.2322
+Device 1 is running: hd_conv2, starting at time 0.0321
+Finishing at time 0.0322
 Next layers: ['output']
 Sorted next layers: ['output']
 
-Device 0 is running: hd_conv3, starting at time 0.2319
-Finishing at time 0.2321
+Device 0 is running: hd_conv3, starting at time 0.0319
+Finishing at time 0.0321
 Next layers: ['hd_conv4']
 Sorted next layers: ['hd_conv4']
 
-Device 0 is running: hd_conv4, starting at time 0.2321
-Dependencies now satisfied. Arrival time pool: [0.22520000000000007, 0.23210000000000008]
-Resuming at 0.2321 on device 0
-Finishing at time 0.2323
+Device 0 is running: hd_conv4, starting at time 0.0321
+Dependencies now satisfied. Arrival time pool: [0.025199999999999993, 0.03209999999999999]
+Resuming at 0.0321 on device 0
+Finishing at time 0.0323
 Next layers: ['hd_conv5']
 Sorted next layers: ['hd_conv5']
 
-Device 0 is running: hd_conv5, starting at time 0.2323
-Finishing at time 0.2363
+Device 0 is running: hd_conv5, starting at time 0.0323
+Finishing at time 0.0363
 Next layers: ['hd_conv6']
 Sorted next layers: ['hd_conv6']
 
-Device 0 is running: hd_conv6, starting at time 0.2363
-Finishing at time 0.2365
+Device 0 is running: hd_conv6, starting at time 0.0363
+Finishing at time 0.0365
 Next layers: ['hd_conv7']
 Sorted next layers: ['hd_conv7']
 
-Device 0 is running: hd_conv7, starting at time 0.2365
-Finishing at time 0.2391
+Device 0 is running: hd_conv7, starting at time 0.0365
+Finishing at time 0.0391
 Next layers: ['hd_conv8']
 Sorted next layers: ['hd_conv8']
 
-Device 0 is running: hd_conv8, starting at time 0.2391
-Finishing at time 0.2393
+Device 0 is running: hd_conv8, starting at time 0.0391
+Finishing at time 0.0393
 Next layers: ['hd_conv9', 'hd_conv11']
 Sorted next layers: ['hd_conv9', 'hd_conv11']
 Sending data to device 1, latency 0.0000
 
-Device 1 is running: hd_conv9, starting at time 0.2393
-Finishing at time 0.2395
+Device 1 is running: hd_conv9, starting at time 0.0393
+Finishing at time 0.0395
 Next layers: ['hd_conv10']
 Sorted next layers: ['hd_conv10']
 
-Device 1 is running: hd_conv10, starting at time 0.2395
-Finishing at time 0.2396
+Device 1 is running: hd_conv10, starting at time 0.0395
+Finishing at time 0.0396
 Next layers: ['output']
 Sorted next layers: ['output']
 
-Device 0 is running: hd_conv11, starting at time 0.2393
-Finishing at time 0.2415
+Device 0 is running: hd_conv11, starting at time 0.0393
+Finishing at time 0.0415
 Next layers: ['hd_conv12']
 Sorted next layers: ['hd_conv12']
 
-Device 0 is running: hd_conv12, starting at time 0.2415
-Dependencies now satisfied. Arrival time pool: [0.22250000000000003, 0.2415000000000001]
-Resuming at 0.2415 on device 0
-Finishing at time 0.2417
+Device 0 is running: hd_conv12, starting at time 0.0415
+Dependencies now satisfied. Arrival time pool: [0.0225, 0.04149999999999998]
+Resuming at 0.0415 on device 0
+Finishing at time 0.0417
 Next layers: ['hd_conv13']
 Sorted next layers: ['hd_conv13']
 
-Device 0 is running: hd_conv13, starting at time 0.2417
-Finishing at time 0.2419
+Device 0 is running: hd_conv13, starting at time 0.0417
+Finishing at time 0.0419
 Next layers: ['hd_conv14']
 Sorted next layers: ['hd_conv14']
 
-Device 0 is running: hd_conv14, starting at time 0.2419
-Finishing at time 0.2493
+Device 0 is running: hd_conv14, starting at time 0.0419
+Finishing at time 0.0493
 Next layers: ['hd_conv15']
 Sorted next layers: ['hd_conv15']
 
-Device 0 is running: hd_conv15, starting at time 0.2493
-Finishing at time 0.2549
+Device 0 is running: hd_conv15, starting at time 0.0493
+Finishing at time 0.0549
 Next layers: ['hd_conv16']
 Sorted next layers: ['hd_conv16']
 
-Device 0 is running: hd_conv16, starting at time 0.2549
-Finishing at time 0.2551
+Device 0 is running: hd_conv16, starting at time 0.0549
+Finishing at time 0.0551
 Next layers: ['hd_conv17']
 Sorted next layers: ['hd_conv17']
 
-Device 0 is running: hd_conv17, starting at time 0.2551
-Finishing at time 0.2571
+Device 0 is running: hd_conv17, starting at time 0.0551
+Finishing at time 0.0571
 Next layers: ['hd_conv18']
 Sorted next layers: ['hd_conv18']
 
-Device 0 is running: hd_conv18, starting at time 0.2571
-Finishing at time 0.2572
+Device 0 is running: hd_conv18, starting at time 0.0571
+Finishing at time 0.0572
 Next layers: ['output']
 Sorted next layers: ['output']
 
 =========Time Result=========
 output_layer    time           
-hd_conv2        0.23220000000000007
-hd_conv10       0.2396000000000001
-hd_conv18       0.2572000000000001
+hd_conv2        0.03219999999999999
+hd_conv10       0.03959999999999998
+hd_conv18       0.05719999999999999
 
 =========Mem Result=========
 device          cpu sum         cpu peak        cuda sum        cuda peak      

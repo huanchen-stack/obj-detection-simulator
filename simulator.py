@@ -60,7 +60,8 @@ class Simulator(object):
             print("{:<15} {:<15}".format(layer.name, layer.device_id))
         print(f"Layer priority: {self.priorities}")
 
-        print("\n=========Start Simulation=========")
+        print(f"\n\033[30;44m=========Start Simulation=========\033[0m")
+
         self.simulate()
 
     def load_dependencies(self, dep_filename):
@@ -142,6 +143,7 @@ class Simulator(object):
         """
         device = self.devices[device_id]
         if start_layer_name not in device.assigned_layer:
+            print(f"\033[31mLayer {start_layer_name} should not be executed on this device!\033[0m")
             exit(1)
         elif start_layer_name == "output":
             print(f"Device {device.name} generates output at time {start_time:.4f}")
@@ -212,11 +214,12 @@ class Simulator(object):
 
         self.device_exec("0", 0, "input")
 
-        print("\n=========Time Result=========")
+        print(f"\n\033[30;42m=========Time Result=========\033[0m")
         print("{:<15} {:<15}".format("output_layer", "time"))
         for key, value in self.time_result.items():
             print("{:<15} {:<15}".format(key, value))
-        print("\n=========Mem Result=========")
+
+        print(f"\n\033[30;42m=========Mem Result=========\033[0m")
         print("{:<15} {:<15} {:<15} {:<15} {:<15}".format("device", "cpu sum", "cpu peak", "cuda sum", "cuda peak"))
         for name, device in self.devices.items():
             device.get_mem_consumption()
