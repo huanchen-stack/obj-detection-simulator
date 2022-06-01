@@ -24,7 +24,7 @@ class Device(object):
             or layername, time, cpu_mem, cuda_mem\n
         """
         prof_df_list = pd.read_csv(prof_filename).values.tolist()
-        for layername, time, cpu_mem, cuda_mem in prof_df_list:
+        for layername, time, cpu_mem, cuda_mem, size in prof_df_list:
             self.time[layername] = time
             self.cpu_mem[layername] = cpu_mem
             self.cuda_mem[layername] = cuda_mem

@@ -39,6 +39,7 @@ class Simulator(object):
 
         # load dependencies and initialize all Layers
         self.load_dependencies(dep_filename)
+        self.load_output_size(prof_filenames[0])
 
         # if priority file is not given, init with even priorities
         if priority_filename is not None:
@@ -59,6 +60,7 @@ class Simulator(object):
             print("{:<15} {:<15}".format(layer.name, layer.device_id))
         print(f"Layer priority: {self.priorities}")
 
+        print("\n=========Start Simulation=========")
         self.simulate()
 
     def load_dependencies(self, dep_filename):
@@ -72,15 +74,18 @@ class Simulator(object):
         for entry in df_list:
             src = entry[0]
             dst = entry[1]
-            size = entry[2]
             if src not in self.layers.keys():
                 self.layers[src] = Layer(src)
             if dst not in self.layers.keys():
                 self.layers[dst] = Layer(dst)
             self.layers[src].next.append(dst)
             self.layers[dst].dependencies.append(src)
-            # TODO: Here size is with layers. If necessary, can be with dependencies.
-            self.layers[src].size = size
+
+    def load_output_size(self, prof_filename):
+        # TODO: Here size is with layers. If necessary, can be with dependencies.
+        df_list = pd.read_csv(prof_filename).values.tolist()
+        for layername, time, cpu, cuda, size in df_list:
+            self.layers[layername].size = size
 
     def load_priorities(self, priority_filename):
         priorities = pd.read_csv(priority_filename).values.tolist()
@@ -136,43 +141,52 @@ class Simulator(object):
         Returns the next layers.
         """
         device = self.devices[device_id]
-        device.cur_time = start_time
         if start_layer_name not in device.assigned_layer:
             exit(1)
+        elif start_layer_name == "output":
+            print(f"Device {device.name} generates output at time {start_time:.4f}")
+            return
         else:
             print("")
-            print(f"Device {device.name} is running: {start_layer_name}, starting at time {device.cur_time}")
+            print(f"Device {device.name} is running: {start_layer_name}, starting at time {start_time:.4f}")
             cur_layer = self.layers[start_layer_name]
             for dep in cur_layer.dependencies:
                 if not self.layers[dep].completed:
-                    cur_layer.arrival_time_pool.append(device.cur_time)
+                    cur_layer.arrival_time_pool.append(start_time)
                     # cease exec
-                    print(f"Dependencies not satisfied. Ceasing at {device.cur_time} on device {device.name}")
+                    print(f"Dependencies NOT satisfied. Ceasing at {start_time:.4f} on device {device.name}")
                     return
             if len(cur_layer.arrival_time_pool) > 0:
-                cur_layer.arrival_time_pool.append(device.cur_time)
+                cur_layer.arrival_time_pool.append(start_time)
                 device.cur_time = max(cur_layer.arrival_time_pool)
                 print(f"Dependencies now satisfied. Arrival time pool: {cur_layer.arrival_time_pool}")
-                print(f"Resuming at {device.cur_time} on device {device.name}")
+                print(f"Resuming at {device.cur_time:.4f} on device {device.name}")
+            else:
+                device.cur_time = start_time
 
             device.cur_time += device.time[start_layer_name]
             cur_layer.completed = True
-            print(f"Finishing at time {device.cur_time}")
+            print(f"Finishing at time {device.cur_time:.4f}")
 
             print(f"Next layers: {cur_layer.next}")
             cur_layer.next = sorted(cur_layer.next, key=lambda e: self.priorities[e], reverse=True)
             print(f"Sorted next layers: {cur_layer.next}")
 
             for next_layer_name in cur_layer.next:
+                if self.layers[next_layer_name].completed:
+                    # in case of:
+                    #               1 -- 2 -- 3
+                    #                \_______/
+                    continue
                 if next_layer_name == "output":
                     self.time_result[start_layer_name] = device.cur_time
-                    device.assigned_layer.pop()
                     continue
                 if self.layers[next_layer_name].device_id != device_id:
-                    transfer_latency = self.bandwidth
+                    transfer_latency = 0
                     # transfer_latency = cur_layer.size / self.bandwidth
 
-                    print(f"Sending data to device {self.layers[next_layer_name].device_id}, latency {transfer_latency}")
+                    print(f"Sending data to device {self.layers[next_layer_name].device_id}, "
+                          f"latency {transfer_latency:.4f}")
 
                     # change device
                     # for tail recursion
@@ -181,6 +195,7 @@ class Simulator(object):
                         self.device_exec(self.layers[next_layer_name].device_id,
                                          device.cur_time,
                                          next_layer_name)
+                        a=1
                     else:
                         self.device_exec(self.layers[next_layer_name].device_id,
                                          device.cur_time + transfer_latency,

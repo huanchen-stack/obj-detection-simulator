@@ -1,76 +1,550 @@
-['0', '1', '2', '3']
-Device name: 0, with layers: ['input', 'layer1', 'layer2', 'layer3']
-Device name: 1, with layers: ['layer4']
-Device name: 2, with layers: ['layer5', 'layer6']
-Device name: 3, with layers: ['layer7', 'output']
+['0', '1', '2', '3', '4', '5', '6']
+Device name: 0, with layers: ['input', 'd1_conv1', 'd1_conv2', 'd1_conv4', 'd1_conv5', 'd1_conv6', 'd1_conv7', 'd1_conv8', 'd2_conv1', 'd2_conv2', 'd2_conv3', 'd2_resblock', 'd2_conv4', 'd2_conv5', 'd3_conv1', 'd3_conv2', 'd3_conv3', 'd3_resblock', 'd3_conv4', 'd3_conv5', 'd4_conv1', 'd4_conv2', 'd4_conv3', 'd4_resblock', 'd4_conv4', 'd4_conv5', 'd5_conv1', 'd5_conv2', 'd5_conv3', 'd5_resblock', 'd5_conv4', 'd5_conv5', 'nk_conv1', 'nk_conv2', 'nk_conv3', 'nk_maxpl1', 'nk_conv4', 'nk_conv5', 'nk_conv6', 'nk_conv7', 'nk_upspl1', 'nk_conv9', 'nk_conv10', 'nk_conv11', 'nk_conv12', 'nk_conv13', 'nk_conv14', 'nk_upspl2', 'nk_conv16', 'nk_conv17', 'nk_conv18', 'nk_conv19', 'nk_conv20', 'hd_conv3', 'hd_conv4', 'hd_conv5', 'hd_conv6', 'hd_conv7', 'hd_conv8', 'hd_conv11', 'hd_conv12', 'hd_conv13', 'hd_conv14', 'hd_conv15', 'hd_conv16', 'hd_conv17', 'hd_conv18', 'output']
+Device name: 1, with layers: ['d1_conv3', 'nk_maxpl2', 'nk_conv8', 'nk_conv15', 'hd_conv1', 'hd_conv2', 'hd_conv9', 'hd_conv10']
+Device name: 2, with layers: ['nk_maxpl3']
+Device name: 3, with layers: []
+Device name: 4, with layers: []
+Device name: 5, with layers: []
+Device name: 6, with layers: []
 layer           device         
 input           0              
-layer1          0              
-layer2          0              
-layer3          0              
-layer4          1              
-layer5          2              
-layer7          3              
-layer6          2              
-output          3              
-Layer priority: {'input': 1, 'layer1': 1, 'layer2': 1, 'layer3': 1, 'layer4': 1, 'layer5': 1, 'layer6': 1, 'layer7': 1, 'output': 1}
+d1_conv1        0              
+d1_conv2        0              
+d1_conv3        1              
+d1_conv4        0              
+d1_conv5        0              
+d1_conv6        0              
+d1_conv7        0              
+d1_conv8        0              
+d2_conv1        0              
+d2_conv2        0              
+d2_conv3        0              
+d2_resblock     0              
+d2_conv4        0              
+d2_conv5        0              
+d3_conv1        0              
+d3_conv2        0              
+d3_conv3        0              
+d3_resblock     0              
+d3_conv4        0              
+d3_conv5        0              
+d4_conv1        0              
+d4_conv2        0              
+d4_conv3        0              
+d4_resblock     0              
+d4_conv4        0              
+d4_conv5        0              
+d5_conv1        0              
+d5_conv2        0              
+d5_conv3        0              
+d5_resblock     0              
+d5_conv4        0              
+d5_conv5        0              
+nk_conv1        0              
+nk_conv2        0              
+nk_conv3        0              
+nk_maxpl1       0              
+nk_maxpl2       1              
+nk_maxpl3       2              
+nk_conv4        0              
+nk_conv5        0              
+nk_conv6        0              
+nk_conv7        0              
+nk_upspl1       0              
+nk_conv8        1              
+nk_conv9        0              
+nk_conv10       0              
+nk_conv11       0              
+nk_conv12       0              
+nk_conv13       0              
+nk_conv14       0              
+nk_upspl2       0              
+nk_conv15       1              
+nk_conv16       0              
+nk_conv17       0              
+nk_conv18       0              
+nk_conv19       0              
+nk_conv20       0              
+hd_conv1        1              
+hd_conv3        0              
+hd_conv2        1              
+hd_conv4        0              
+hd_conv5        0              
+hd_conv6        0              
+hd_conv7        0              
+hd_conv8        0              
+hd_conv9        1              
+hd_conv11       0              
+hd_conv10       1              
+hd_conv12       0              
+hd_conv13       0              
+hd_conv14       0              
+hd_conv15       0              
+hd_conv16       0              
+hd_conv17       0              
+hd_conv18       0              
+output          0              
+Layer priority: {'input': 1, 'd1_conv1': 1, 'd1_conv2': 1, 'd1_conv3': 1, 'd1_conv4': 1, 'd1_conv5': 1, 'd1_conv6': 1, 'd1_conv7': 1, 'd1_conv8': 1, 'd2_conv1': 1, 'd2_conv2': 1, 'd2_conv3': 1, 'd2_resblock': 1, 'd2_conv4': 1, 'd2_conv5': 1, 'd3_conv1': 1, 'd3_conv2': 1, 'd3_conv3': 1, 'd3_resblock': 1, 'd3_conv4': 1, 'd3_conv5': 1, 'd4_conv1': 1, 'd4_conv2': 1, 'd4_conv3': 1, 'd4_resblock': 1, 'd4_conv4': 1, 'd4_conv5': 1, 'd5_conv1': 1, 'd5_conv2': 1, 'd5_conv3': 1, 'd5_resblock': 1, 'd5_conv4': 1, 'd5_conv5': 1, 'nk_conv1': 1, 'nk_conv2': 1, 'nk_conv3': 1, 'nk_maxpl1': 1, 'nk_maxpl2': 1, 'nk_maxpl3': 1, 'nk_conv4': 1, 'nk_conv5': 1, 'nk_conv6': 1, 'nk_conv7': 1, 'nk_upspl1': 1, 'nk_conv8': 1, 'nk_conv9': 1, 'nk_conv10': 1, 'nk_conv11': 1, 'nk_conv12': 1, 'nk_conv13': 1, 'nk_conv14': 1, 'nk_upspl2': 1, 'nk_conv15': 1, 'nk_conv16': 1, 'nk_conv17': 1, 'nk_conv18': 1, 'nk_conv19': 1, 'nk_conv20': 1, 'hd_conv1': 1, 'hd_conv3': 1, 'hd_conv2': 1, 'hd_conv4': 1, 'hd_conv5': 1, 'hd_conv6': 1, 'hd_conv7': 1, 'hd_conv8': 1, 'hd_conv9': 1, 'hd_conv11': 1, 'hd_conv10': 1, 'hd_conv12': 1, 'hd_conv13': 1, 'hd_conv14': 1, 'hd_conv15': 1, 'hd_conv16': 1, 'hd_conv17': 1, 'hd_conv18': 1, 'output': 1}
 
-Device 0 is running: input, starting at time 0
-Finishing at time 0
-Next layers: ['layer1']
-Sorted next layers: ['layer1']
+=========Start Simulation=========
 
-Device 0 is running: layer1, starting at time 0
-Finishing at time 1
-Next layers: ['layer2']
-Sorted next layers: ['layer2']
+Device 0 is running: input, starting at time 0.0000
+Finishing at time 0.0000
+Next layers: ['d1_conv1']
+Sorted next layers: ['d1_conv1']
 
-Device 0 is running: layer2, starting at time 1
-Finishing at time 3
-Next layers: ['layer3', 'layer4']
-Sorted next layers: ['layer3', 'layer4']
+Device 0 is running: d1_conv1, starting at time 0.0000
+Finishing at time 0.0003
+Next layers: ['d1_conv2']
+Sorted next layers: ['d1_conv2']
 
-Device 0 is running: layer3, starting at time 3
-Finishing at time 6
-Next layers: ['layer5']
-Sorted next layers: ['layer5']
-Sending data to device 2, latency 200
+Device 0 is running: d1_conv2, starting at time 0.0003
+Finishing at time 0.0006
+Next layers: ['d1_conv3', 'd1_conv4']
+Sorted next layers: ['d1_conv3', 'd1_conv4']
+Sending data to device 1, latency 0.0000
 
-Device 2 is running: layer5, starting at time 206
-Finishing at time 211
-Next layers: ['layer6']
-Sorted next layers: ['layer6']
+Device 1 is running: d1_conv3, starting at time 0.0006
+Finishing at time 0.0009
+Next layers: ['d1_conv8']
+Sorted next layers: ['d1_conv8']
+Sending data to device 0, latency 0.0000
 
-Device 2 is running: layer6, starting at time 211
-Finishing at time 217
-Next layers: ['layer7']
-Sorted next layers: ['layer7']
-Sending data to device 3, latency 200
+Device 0 is running: d1_conv8, starting at time 0.0009
+Dependencies NOT satisfied. Ceasing at 0.0009 on device 0
 
-Device 3 is running: layer7, starting at time 417
-Dependencies not satisfied. Ceasing at 417 on device 3
-Sending data to device 1, latency 200
+Device 0 is running: d1_conv4, starting at time 0.0006
+Finishing at time 0.0009
+Next layers: ['d1_conv5']
+Sorted next layers: ['d1_conv5']
 
-Device 1 is running: layer4, starting at time 206
-Finishing at time 210
-Next layers: ['layer7']
-Sorted next layers: ['layer7']
-Sending data to device 3, latency 200
+Device 0 is running: d1_conv5, starting at time 0.0009
+Finishing at time 0.0012
+Next layers: ['d1_conv6']
+Sorted next layers: ['d1_conv6']
 
-Device 3 is running: layer7, starting at time 410
-Dependencies now satisfied. Arrival time pool: [417, 410]
-Resuming at 417 on device 3
-Finishing at time 424
+Device 0 is running: d1_conv6, starting at time 0.0012
+Finishing at time 0.0015
+Next layers: ['d1_conv7']
+Sorted next layers: ['d1_conv7']
+
+Device 0 is running: d1_conv7, starting at time 0.0015
+Finishing at time 0.0018
+Next layers: ['d1_conv8']
+Sorted next layers: ['d1_conv8']
+
+Device 0 is running: d1_conv8, starting at time 0.0018
+Dependencies now satisfied. Arrival time pool: [0.0009, 0.0017999999999999997]
+Resuming at 0.0018 on device 0
+Finishing at time 0.0021
+Next layers: ['d2_conv1']
+Sorted next layers: ['d2_conv1']
+
+Device 0 is running: d2_conv1, starting at time 0.0021
+Finishing at time 0.0024
+Next layers: ['d2_conv2', 'd2_conv3']
+Sorted next layers: ['d2_conv2', 'd2_conv3']
+
+Device 0 is running: d2_conv2, starting at time 0.0024
+Finishing at time 0.0027
+Next layers: ['d2_conv5']
+Sorted next layers: ['d2_conv5']
+
+Device 0 is running: d2_conv5, starting at time 0.0027
+Dependencies NOT satisfied. Ceasing at 0.0027 on device 0
+
+Device 0 is running: d2_conv3, starting at time 0.0027
+Finishing at time 0.0030
+Next layers: ['d2_resblock']
+Sorted next layers: ['d2_resblock']
+
+Device 0 is running: d2_resblock, starting at time 0.0030
+Finishing at time 0.0042
+Next layers: ['d2_conv4']
+Sorted next layers: ['d2_conv4']
+
+Device 0 is running: d2_conv4, starting at time 0.0042
+Finishing at time 0.0045
+Next layers: ['d2_conv5']
+Sorted next layers: ['d2_conv5']
+
+Device 0 is running: d2_conv5, starting at time 0.0045
+Dependencies now satisfied. Arrival time pool: [0.0026999999999999997, 0.0045]
+Resuming at 0.0045 on device 0
+Finishing at time 0.0048
+Next layers: ['d3_conv1']
+Sorted next layers: ['d3_conv1']
+
+Device 0 is running: d3_conv1, starting at time 0.0048
+Finishing at time 0.0051
+Next layers: ['d3_conv2', 'd3_conv3']
+Sorted next layers: ['d3_conv2', 'd3_conv3']
+
+Device 0 is running: d3_conv2, starting at time 0.0051
+Finishing at time 0.0054
+Next layers: ['d3_conv5']
+Sorted next layers: ['d3_conv5']
+
+Device 0 is running: d3_conv5, starting at time 0.0054
+Dependencies NOT satisfied. Ceasing at 0.0054 on device 0
+
+Device 0 is running: d3_conv3, starting at time 0.0054
+Finishing at time 0.0057
+Next layers: ['d3_resblock']
+Sorted next layers: ['d3_resblock']
+
+Device 0 is running: d3_resblock, starting at time 0.0057
+Finishing at time 0.0102
+Next layers: ['d3_conv4']
+Sorted next layers: ['d3_conv4']
+
+Device 0 is running: d3_conv4, starting at time 0.0102
+Finishing at time 0.0105
+Next layers: ['d3_conv5']
+Sorted next layers: ['d3_conv5']
+
+Device 0 is running: d3_conv5, starting at time 0.0105
+Dependencies now satisfied. Arrival time pool: [0.005399999999999999, 0.010499999999999999]
+Resuming at 0.0105 on device 0
+Finishing at time 0.0108
+Next layers: ['d4_conv1', 'nk_conv15']
+Sorted next layers: ['d4_conv1', 'nk_conv15']
+
+Device 0 is running: d4_conv1, starting at time 0.0108
+Finishing at time 0.0111
+Next layers: ['d4_conv2', 'd4_conv3']
+Sorted next layers: ['d4_conv2', 'd4_conv3']
+
+Device 0 is running: d4_conv2, starting at time 0.0111
+Finishing at time 0.0114
+Next layers: ['d4_conv5']
+Sorted next layers: ['d4_conv5']
+
+Device 0 is running: d4_conv5, starting at time 0.0114
+Dependencies NOT satisfied. Ceasing at 0.0114 on device 0
+
+Device 0 is running: d4_conv3, starting at time 0.0114
+Finishing at time 0.0117
+Next layers: ['d4_resblock']
+Sorted next layers: ['d4_resblock']
+
+Device 0 is running: d4_resblock, starting at time 0.0117
+Finishing at time 0.0162
+Next layers: ['d4_conv4']
+Sorted next layers: ['d4_conv4']
+
+Device 0 is running: d4_conv4, starting at time 0.0162
+Finishing at time 0.0165
+Next layers: ['d4_conv5']
+Sorted next layers: ['d4_conv5']
+
+Device 0 is running: d4_conv5, starting at time 0.0165
+Dependencies now satisfied. Arrival time pool: [0.011399999999999999, 0.0165]
+Resuming at 0.0165 on device 0
+Finishing at time 0.0173
+Next layers: ['d5_conv1', 'nk_conv8']
+Sorted next layers: ['d5_conv1', 'nk_conv8']
+
+Device 0 is running: d5_conv1, starting at time 0.0173
+Finishing at time 0.0176
+Next layers: ['d5_conv2', 'd5_conv3']
+Sorted next layers: ['d5_conv2', 'd5_conv3']
+
+Device 0 is running: d5_conv2, starting at time 0.0176
+Finishing at time 0.0179
+Next layers: ['d5_conv5']
+Sorted next layers: ['d5_conv5']
+
+Device 0 is running: d5_conv5, starting at time 0.0179
+Dependencies NOT satisfied. Ceasing at 0.0179 on device 0
+
+Device 0 is running: d5_conv3, starting at time 0.0179
+Finishing at time 0.0182
+Next layers: ['d5_resblock']
+Sorted next layers: ['d5_resblock']
+
+Device 0 is running: d5_resblock, starting at time 0.0182
+Finishing at time 0.0205
+Next layers: ['d5_conv4']
+Sorted next layers: ['d5_conv4']
+
+Device 0 is running: d5_conv4, starting at time 0.0205
+Finishing at time 0.0208
+Next layers: ['d5_conv5']
+Sorted next layers: ['d5_conv5']
+
+Device 0 is running: d5_conv5, starting at time 0.0208
+Dependencies now satisfied. Arrival time pool: [0.017900000000000003, 0.020800000000000006]
+Resuming at 0.0208 on device 0
+Finishing at time 0.0211
+Next layers: ['nk_conv1']
+Sorted next layers: ['nk_conv1']
+
+Device 0 is running: nk_conv1, starting at time 0.0211
+Finishing at time 0.0213
+Next layers: ['nk_conv2']
+Sorted next layers: ['nk_conv2']
+
+Device 0 is running: nk_conv2, starting at time 0.0213
+Finishing at time 0.0215
+Next layers: ['nk_conv3']
+Sorted next layers: ['nk_conv3']
+
+Device 0 is running: nk_conv3, starting at time 0.0215
+Finishing at time 0.0217
+Next layers: ['nk_maxpl1', 'nk_maxpl2', 'nk_maxpl3', 'nk_conv4']
+Sorted next layers: ['nk_maxpl1', 'nk_maxpl2', 'nk_maxpl3', 'nk_conv4']
+
+Device 0 is running: nk_maxpl1, starting at time 0.0217
+Finishing at time 0.1217
+Next layers: ['nk_conv4']
+Sorted next layers: ['nk_conv4']
+
+Device 0 is running: nk_conv4, starting at time 0.1217
+Dependencies NOT satisfied. Ceasing at 0.1217 on device 0
+Sending data to device 1, latency 0.0000
+
+Device 1 is running: nk_maxpl2, starting at time 0.1217
+Finishing at time 0.2217
+Next layers: ['nk_conv4']
+Sorted next layers: ['nk_conv4']
+Sending data to device 0, latency 0.0000
+
+Device 0 is running: nk_conv4, starting at time 0.2217
+Dependencies NOT satisfied. Ceasing at 0.2217 on device 0
+Sending data to device 2, latency 0.0000
+
+Device 2 is running: nk_maxpl3, starting at time 0.1217
+Finishing at time 0.2217
+Next layers: ['nk_conv4']
+Sorted next layers: ['nk_conv4']
+Sending data to device 0, latency 0.0000
+
+Device 0 is running: nk_conv4, starting at time 0.2217
+Dependencies now satisfied. Arrival time pool: [0.1217, 0.2217, 0.2217]
+Resuming at 0.2217 on device 0
+Finishing at time 0.2219
+Next layers: ['nk_conv5']
+Sorted next layers: ['nk_conv5']
+
+Device 0 is running: nk_conv5, starting at time 0.2219
+Finishing at time 0.2221
+Next layers: ['nk_conv6']
+Sorted next layers: ['nk_conv6']
+
+Device 0 is running: nk_conv6, starting at time 0.2221
+Finishing at time 0.2223
+Next layers: ['nk_conv7', 'hd_conv12']
+Sorted next layers: ['nk_conv7', 'hd_conv12']
+
+Device 0 is running: nk_conv7, starting at time 0.2223
+Finishing at time 0.2225
+Next layers: ['nk_upspl1']
+Sorted next layers: ['nk_upspl1']
+
+Device 0 is running: nk_upspl1, starting at time 0.2225
+Finishing at time 0.2225
+Next layers: ['nk_conv9']
+Sorted next layers: ['nk_conv9']
+
+Device 0 is running: nk_conv9, starting at time 0.2225
+Dependencies NOT satisfied. Ceasing at 0.2225 on device 0
+
+Device 0 is running: hd_conv12, starting at time 0.2225
+Dependencies NOT satisfied. Ceasing at 0.2225 on device 0
+Sending data to device 1, latency 0.0000
+
+Device 1 is running: nk_conv8, starting at time 0.2225
+Finishing at time 0.2227
+Next layers: ['nk_conv9']
+Sorted next layers: ['nk_conv9']
+Sending data to device 0, latency 0.0000
+
+Device 0 is running: nk_conv9, starting at time 0.2227
+Dependencies now satisfied. Arrival time pool: [0.22250000000000003, 0.22270000000000004]
+Resuming at 0.2227 on device 0
+Finishing at time 0.2229
+Next layers: ['nk_conv10']
+Sorted next layers: ['nk_conv10']
+
+Device 0 is running: nk_conv10, starting at time 0.2229
+Finishing at time 0.2231
+Next layers: ['nk_conv11']
+Sorted next layers: ['nk_conv11']
+
+Device 0 is running: nk_conv11, starting at time 0.2231
+Finishing at time 0.2233
+Next layers: ['nk_conv12']
+Sorted next layers: ['nk_conv12']
+
+Device 0 is running: nk_conv12, starting at time 0.2233
+Finishing at time 0.2248
+Next layers: ['nk_conv13']
+Sorted next layers: ['nk_conv13']
+
+Device 0 is running: nk_conv13, starting at time 0.2248
+Finishing at time 0.2250
+Next layers: ['nk_conv14', 'hd_conv4']
+Sorted next layers: ['nk_conv14', 'hd_conv4']
+
+Device 0 is running: nk_conv14, starting at time 0.2250
+Finishing at time 0.2252
+Next layers: ['nk_upspl2']
+Sorted next layers: ['nk_upspl2']
+
+Device 0 is running: nk_upspl2, starting at time 0.2252
+Finishing at time 0.2252
+Next layers: ['nk_conv16']
+Sorted next layers: ['nk_conv16']
+
+Device 0 is running: nk_conv16, starting at time 0.2252
+Dependencies NOT satisfied. Ceasing at 0.2252 on device 0
+
+Device 0 is running: hd_conv4, starting at time 0.2252
+Dependencies NOT satisfied. Ceasing at 0.2252 on device 0
+Sending data to device 1, latency 0.0000
+
+Device 1 is running: nk_conv15, starting at time 0.2252
+Finishing at time 0.2254
+Next layers: ['nk_conv16']
+Sorted next layers: ['nk_conv16']
+Sending data to device 0, latency 0.0000
+
+Device 0 is running: nk_conv16, starting at time 0.2254
+Dependencies now satisfied. Arrival time pool: [0.22520000000000007, 0.22540000000000007]
+Resuming at 0.2254 on device 0
+Finishing at time 0.2256
+Next layers: ['nk_conv17']
+Sorted next layers: ['nk_conv17']
+
+Device 0 is running: nk_conv17, starting at time 0.2256
+Finishing at time 0.2276
+Next layers: ['nk_conv18']
+Sorted next layers: ['nk_conv18']
+
+Device 0 is running: nk_conv18, starting at time 0.2276
+Finishing at time 0.2278
+Next layers: ['nk_conv19']
+Sorted next layers: ['nk_conv19']
+
+Device 0 is running: nk_conv19, starting at time 0.2278
+Finishing at time 0.2317
+Next layers: ['nk_conv20']
+Sorted next layers: ['nk_conv20']
+
+Device 0 is running: nk_conv20, starting at time 0.2317
+Finishing at time 0.2319
+Next layers: ['hd_conv1', 'hd_conv3']
+Sorted next layers: ['hd_conv1', 'hd_conv3']
+Sending data to device 1, latency 0.0000
+
+Device 1 is running: hd_conv1, starting at time 0.2319
+Finishing at time 0.2321
+Next layers: ['hd_conv2']
+Sorted next layers: ['hd_conv2']
+
+Device 1 is running: hd_conv2, starting at time 0.2321
+Finishing at time 0.2322
+Next layers: ['output']
+Sorted next layers: ['output']
+
+Device 0 is running: hd_conv3, starting at time 0.2319
+Finishing at time 0.2321
+Next layers: ['hd_conv4']
+Sorted next layers: ['hd_conv4']
+
+Device 0 is running: hd_conv4, starting at time 0.2321
+Dependencies now satisfied. Arrival time pool: [0.22520000000000007, 0.23210000000000008]
+Resuming at 0.2321 on device 0
+Finishing at time 0.2323
+Next layers: ['hd_conv5']
+Sorted next layers: ['hd_conv5']
+
+Device 0 is running: hd_conv5, starting at time 0.2323
+Finishing at time 0.2363
+Next layers: ['hd_conv6']
+Sorted next layers: ['hd_conv6']
+
+Device 0 is running: hd_conv6, starting at time 0.2363
+Finishing at time 0.2365
+Next layers: ['hd_conv7']
+Sorted next layers: ['hd_conv7']
+
+Device 0 is running: hd_conv7, starting at time 0.2365
+Finishing at time 0.2391
+Next layers: ['hd_conv8']
+Sorted next layers: ['hd_conv8']
+
+Device 0 is running: hd_conv8, starting at time 0.2391
+Finishing at time 0.2393
+Next layers: ['hd_conv9', 'hd_conv11']
+Sorted next layers: ['hd_conv9', 'hd_conv11']
+Sending data to device 1, latency 0.0000
+
+Device 1 is running: hd_conv9, starting at time 0.2393
+Finishing at time 0.2395
+Next layers: ['hd_conv10']
+Sorted next layers: ['hd_conv10']
+
+Device 1 is running: hd_conv10, starting at time 0.2395
+Finishing at time 0.2396
+Next layers: ['output']
+Sorted next layers: ['output']
+
+Device 0 is running: hd_conv11, starting at time 0.2393
+Finishing at time 0.2415
+Next layers: ['hd_conv12']
+Sorted next layers: ['hd_conv12']
+
+Device 0 is running: hd_conv12, starting at time 0.2415
+Dependencies now satisfied. Arrival time pool: [0.22250000000000003, 0.2415000000000001]
+Resuming at 0.2415 on device 0
+Finishing at time 0.2417
+Next layers: ['hd_conv13']
+Sorted next layers: ['hd_conv13']
+
+Device 0 is running: hd_conv13, starting at time 0.2417
+Finishing at time 0.2419
+Next layers: ['hd_conv14']
+Sorted next layers: ['hd_conv14']
+
+Device 0 is running: hd_conv14, starting at time 0.2419
+Finishing at time 0.2493
+Next layers: ['hd_conv15']
+Sorted next layers: ['hd_conv15']
+
+Device 0 is running: hd_conv15, starting at time 0.2493
+Finishing at time 0.2549
+Next layers: ['hd_conv16']
+Sorted next layers: ['hd_conv16']
+
+Device 0 is running: hd_conv16, starting at time 0.2549
+Finishing at time 0.2551
+Next layers: ['hd_conv17']
+Sorted next layers: ['hd_conv17']
+
+Device 0 is running: hd_conv17, starting at time 0.2551
+Finishing at time 0.2571
+Next layers: ['hd_conv18']
+Sorted next layers: ['hd_conv18']
+
+Device 0 is running: hd_conv18, starting at time 0.2571
+Finishing at time 0.2572
 Next layers: ['output']
 Sorted next layers: ['output']
 
 =========Time Result=========
 output_layer    time           
-layer7          424            
+hd_conv2        0.23220000000000007
+hd_conv10       0.2396000000000001
+hd_conv18       0.2572000000000001
 
 =========Mem Result=========
 device          cpu sum         cpu peak        cuda sum        cuda peak      
-0               4.0             1               4.0             1              
-1               1.0             1               1.0             1              
-2               2.0             1               2.0             1              
-3               1.0             1               1.0             1              
+0               0.0             0               5166.591999999996 585.49         
+1               0.0             0               438.8225        276.53         
+2               0.0             0               4.28            4.28           
+3               0.0             0.0             0.0             0.0            
+4               0.0             0.0             0.0             0.0            
+5               0.0             0.0             0.0             0.0            
+6               0.0             0.0             0.0             0.0            
