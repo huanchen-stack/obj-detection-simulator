@@ -60,8 +60,6 @@ class Simulator(object):
             print("{:<15} {:<15}".format(layer.name, layer.device_id))
         print(f"Layer priority: {self.priorities}")
 
-        print(f"\n\033[30;44m=========Start Simulation=========\033[0m")
-
         self.simulate()
 
     def load_dependencies(self, dep_filename):
@@ -208,10 +206,7 @@ class Simulator(object):
                     self.device_exec(device.name, device.cur_time, next_layer_name)
 
     def simulate(self):
-        # start with device idx == 0
-        # self.device_exec("0", 0, "layer1")
-        # self.device_exec("1", 0, "layer4")
-
+        print(f"\n\033[30;44m=========Start Simulation=========\033[0m")
         self.device_exec("0", 0, "input")
 
         print(f"\n\033[30;42m=========Time Result=========\033[0m")
