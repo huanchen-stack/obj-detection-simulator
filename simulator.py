@@ -24,6 +24,7 @@ class Simulator(object):
 
         self.time_result = {}
         self.mem_result = {}
+        self.time_result_seg = {}
 
         self.stack = []  # for DFS
         self.waiting_queue = []  # for DFS: when layer cannot be explored due to
@@ -39,7 +40,6 @@ class Simulator(object):
 
         # load dependencies and initialize all Layers
         self.load_dependencies(dep_filename)
-        self.load_output_size(prof_filenames[0])
 
         # if priority file is not given, init with even priorities
         if priority_filename is not None:
@@ -80,11 +80,12 @@ class Simulator(object):
             self.layers[src].next.append(dst)
             self.layers[dst].dependencies.append(src)
 
-    def load_output_size(self, prof_filename):
+    def load_macs_size(self, prof_filename):
         # TODO: Here size is with layers. If necessary, can be with dependencies.
         df_list = pd.read_csv(prof_filename).values.tolist()
-        for layername, time, cpu, cuda, size in df_list:
+        for layername, time, cpu, cuda, size, macs in df_list:
             self.layers[layername].size = size
+            self.layers[layername].macs = macs
 
     def load_priorities(self, priority_filename):
         priorities = pd.read_csv(priority_filename).values.tolist()
@@ -168,6 +169,10 @@ class Simulator(object):
             cur_layer.completed = True
             print(f"Finishing at time {device.cur_time:.4f}")
 
+            if device_id not in self.time_result_seg.keys():
+                self.time_result_seg[device_id] = 0
+            self.time_result_seg[device_id] += device.time[start_layer_name]
+
             print(f"Next layers: {cur_layer.next}")
             cur_layer.next = sorted(cur_layer.next, key=lambda e: self.priorities[e], reverse=True)
             print(f"Sorted next layers: {cur_layer.next}")
@@ -182,8 +187,8 @@ class Simulator(object):
                     self.time_result[start_layer_name] = device.cur_time
                     continue
                 if self.layers[next_layer_name].device_id != device_id:
-                    transfer_latency = 0
-                    # transfer_latency = cur_layer.size / self.bandwidth
+                    # transfer_latency = 0
+                    transfer_latency = cur_layer.size / self.bandwidth
 
                     print(f"Sending data to device {self.layers[next_layer_name].device_id}, "
                           f"latency {transfer_latency:.4f}")
@@ -191,6 +196,7 @@ class Simulator(object):
                     # change device
                     # for tail recursion
                     if not device.parallel:
+                        self.time_result_seg[device_id] += transfer_latency
                         device.cur_time += transfer_latency
                         self.device_exec(self.layers[next_layer_name].device_id,
                                          device.cur_time,
@@ -210,11 +216,21 @@ class Simulator(object):
         self.device_exec("0", 0, "input")
 
         print(f"\n\033[30;42m=========Time Result=========\033[0m")
-        print("{:<15} {:<15}".format("output_layer", "time"))
+        print("{:<15} {:<15}".format("output_layer", "time (s)"))
         for key, value in self.time_result.items():
-            print("{:<15} {:<15}".format(key, value))
+            print("{:<15} {:<15,.5f}".format(key, value))
+
+        print(f"\n\033[30;42m=========Time Result per Device=========\033[0m")
+        print("{:<15} {:<15}".format("device", "time (s)"))
+        for key, value in self.time_result_seg.items():
+            print("{:<15} {:<15,.5f}".format(key, value))
 
         print(f"\n\033[30;42m=========Mem Result=========\033[0m")
-        print("{:<15} {:<15} {:<15} {:<15} {:<15}".format("device", "cpu sum", "cpu peak", "cuda sum", "cuda peak"))
+        print("{:<15} {:<15} {:<15} {:<15} {:<15}".format("device", "cpu sum (MB)", "cpu peak (MB)", "cuda sum (MB)", "cuda peak (MB)"))
         for name, device in self.devices.items():
             device.get_mem_consumption()
+
+        print(f"\n\033[30;42m=========MACs Result=========\033[0m")
+        print("{:<15} {:<15} {:<15}".format("device", "macs sum (M)", "macs peak (M)"))
+        for name, device in self.devices.items():
+            device.get_macs()
