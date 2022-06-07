@@ -1,14 +1,6 @@
 # obj-detection-simulator
 
 ## How to use & Attribution explanation:
-
-Take the following network as an example. 
-
-```commandline
-layer1 -- layer2 -- layer3
-    \____ layer4 ___/
-```
-
 ###1. Test.py
 
 ```python
