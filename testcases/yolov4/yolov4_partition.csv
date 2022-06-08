@@ -75,4 +75,9 @@ hd_conv15,0
 hd_conv16,0
 hd_conv17,0
 hd_conv18,0
+decode1,0
+decode2,0
+decode3,0
+non_max_suppression,0
+wrapping_up,0
 output,0
