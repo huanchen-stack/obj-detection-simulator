@@ -151,6 +151,8 @@ class Simulator(object):
             print(f"Device {device.name} generates output at time {start_time:.4f}")
             return
         else:
+            if device.cur_time is not None:
+                start_time = max(start_time, device.cur_time)
             print("")
             print(f"Device {device.name} is running: {start_layer_name}, starting at time {start_time:.4f}")
             cur_layer = self.layers[start_layer_name]
