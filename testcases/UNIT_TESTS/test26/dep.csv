@@ -1,0 +1,13 @@
+src,dst
+input,A
+input,B
+input,E
+input,C
+input,D
+A,F
+B,F
+E,output
+C,G
+D,G
+F,output
+G,output

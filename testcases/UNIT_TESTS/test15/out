@@ -1,3 +1,4 @@
+Device parallel = True
 ['0', '1', '2', '3', '4', '5']
 Device name: 0, with layers: ['input', 'A', 'D', 'output']
 Device name: 1, with layers: ['B']
@@ -25,23 +26,24 @@ Device 0 is running: A, starting at time 0.0000
 Finishing at time 1.0000
 Next layers: ['B', 'C']
 Sorted next layers: ['B', 'C']
-Sending data to device 1, latency 0.0050
+Device 0 sends layer A output at time 1 to device 1, latency 0.0050
 
 Device 1 is running: B, starting at time 1.0050
 Finishing at time 3.0050
 Next layers: ['D']
 Sorted next layers: ['D']
-Sending data to device 0, latency 0.0100
+Device 1 sends layer B output at time 3.005 to device 0, latency 0.0100
 
 Device 0 is running: D, starting at time 3.0150
 Dependencies NOT satisfied. Ceasing at 3.0150 on device 0
-Sending data to device 2, latency 0.0050
+
+Device 0 sends layer A output at time 1 to device 2, latency 0.0050
 
 Device 2 is running: C, starting at time 1.0050
 Finishing at time 4.0050
 Next layers: ['D']
 Sorted next layers: ['D']
-Sending data to device 0, latency 0.0150
+Device 2 sends layer C output at time 4.005 to device 0, latency 0.0150
 
 Device 0 is running: D, starting at time 4.0200
 Dependencies now satisfied. Arrival time pool: [3.0149999999999997, 4.02]

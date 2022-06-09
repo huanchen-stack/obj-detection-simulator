@@ -1,3 +1,4 @@
+Device parallel = True
 ['0', '1', '2', '3', '4', '5']
 Device name: 0, with layers: ['input', 'A', 'B', 'C', 'D', 'output']
 Device name: 1, with layers: []
@@ -33,6 +34,7 @@ Sorted next layers: ['D']
 
 Device 0 is running: D, starting at time 3.0000
 Dependencies NOT satisfied. Ceasing at 3.0000 on device 0
+
 
 Device 0 is running: C, starting at time 3.0000
 Finishing at time 6.0000

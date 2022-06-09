@@ -1,3 +1,4 @@
+Device parallel = True
 ['0', '1', '2', '3', '4', '5']
 Device name: 0, with layers: ['input', 'A', 'E', 'output']
 Device name: 1, with layers: ['B', 'C', 'D', 'F']
@@ -27,7 +28,7 @@ Device 0 is running: A, starting at time 0.0000
 Finishing at time 1.0000
 Next layers: ['B', 'D']
 Sorted next layers: ['B', 'D']
-Sending data to device 1, latency 0.0050
+Device 0 sends layer A output at time 1 to device 1, latency 0.0050
 
 Device 1 is running: B, starting at time 1.0050
 Finishing at time 3.0050
@@ -37,14 +38,16 @@ Sorted next layers: ['C', 'D']
 Device 1 is running: C, starting at time 3.0050
 Dependencies NOT satisfied. Ceasing at 3.0050 on device 1
 
+
 Device 1 is running: D, starting at time 3.0050
 Finishing at time 7.0050
 Next layers: ['E', 'C']
 Sorted next layers: ['E', 'C']
-Sending data to device 0, latency 0.0200
+Device 1 sends layer D output at time 7.005 to device 0, latency 0.0200
 
 Device 0 is running: E, starting at time 7.0250
 Dependencies NOT satisfied. Ceasing at 7.0250 on device 0
+
 
 Device 1 is running: C, starting at time 7.0050
 Dependencies now satisfied. Arrival time pool: [3.005, 7.005]
@@ -55,7 +58,8 @@ Sorted next layers: ['F', 'E']
 
 Device 1 is running: F, starting at time 10.0050
 Dependencies NOT satisfied. Ceasing at 10.0050 on device 1
-Sending data to device 0, latency 0.0150
+
+Device 1 sends layer C output at time 10.004999999999999 to device 0, latency 0.0150
 
 Device 0 is running: E, starting at time 10.0200
 Dependencies now satisfied. Arrival time pool: [7.0249999999999995, 10.02]
@@ -63,7 +67,7 @@ Resuming at 10.0200 on device 0
 Finishing at time 15.0200
 Next layers: ['F']
 Sorted next layers: ['F']
-Sending data to device 1, latency 0.0250
+Device 0 sends layer E output at time 15.02 to device 1, latency 0.0250
 
 Device 1 is running: F, starting at time 15.0450
 Dependencies now satisfied. Arrival time pool: [10.004999999999999, 15.045]

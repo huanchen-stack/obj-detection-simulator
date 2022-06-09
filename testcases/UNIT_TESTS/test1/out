@@ -1,3 +1,4 @@
+Device parallel = True
 ['0', '1', '2', '3', '4', '5']
 Device name: 0, with layers: ['input', 'layer0', 'output']
 Device name: 1, with layers: ['layer1']
@@ -26,25 +27,25 @@ Device 0 is running: layer0, starting at time 0.0000
 Finishing at time 1.0000
 Next layers: ['layer1']
 Sorted next layers: ['layer1']
-Sending data to device 1, latency 0.0050
+Device 0 sends layer layer0 output at time 1 to device 1, latency 0.0050
 
 Device 1 is running: layer1, starting at time 1.0050
 Finishing at time 3.0050
 Next layers: ['layer2']
 Sorted next layers: ['layer2']
-Sending data to device 2, latency 0.0100
+Device 1 sends layer layer1 output at time 3.005 to device 2, latency 0.0100
 
 Device 2 is running: layer2, starting at time 3.0150
 Finishing at time 6.0150
 Next layers: ['layer3']
 Sorted next layers: ['layer3']
-Sending data to device 3, latency 0.0150
+Device 2 sends layer layer2 output at time 6.015 to device 3, latency 0.0150
 
 Device 3 is running: layer3, starting at time 6.0300
 Finishing at time 10.0300
 Next layers: ['layer4']
 Sorted next layers: ['layer4']
-Sending data to device 4, latency 0.0200
+Device 3 sends layer layer3 output at time 10.03 to device 4, latency 0.0200
 
 Device 4 is running: layer4, starting at time 10.0500
 Finishing at time 15.0500

@@ -1,0 +1,106 @@
+Device parallel = True
+['0', '1', '2', '3', '4', '5']
+Device name: 0, with layers: ['input', 'C', 'D', 'G', 'output']
+Device name: 1, with layers: ['A', 'B', 'F']
+Device name: 2, with layers: ['E']
+Device name: 3, with layers: []
+Device name: 4, with layers: []
+Device name: 5, with layers: []
+layer           device         
+input           0              
+A               1              
+B               1              
+E               2              
+C               0              
+D               0              
+F               1              
+output          0              
+G               0              
+Layer priority: {'input': 1, 'A': 1, 'B': 1, 'E': 1, 'C': 1, 'D': 1, 'F': 1, 'output': 1, 'G': 1}
+
+[30;44m=========Start Simulation=========[0m
+
+Device 0 is running: input, starting at time 0.0000
+Finishing at time 0.0000
+Next layers: ['A', 'B', 'E', 'C', 'D']
+Sorted next layers: ['A', 'B', 'E', 'C', 'D']
+Device 0 sends layer input output at time 0 to device 1, latency 0.0000
+
+Device 1 is running: A, starting at time 0.0000
+Finishing at time 1.0000
+Next layers: ['F']
+Sorted next layers: ['F']
+
+Device 1 is running: F, starting at time 1.0000
+Dependencies NOT satisfied. Ceasing at 1.0000 on device 1
+
+Device 0 sends layer input output at time 0 to device 1, latency 0.0000
+
+Device 1 is running: B, starting at time 1.0000
+Finishing at time 3.0000
+Next layers: ['F']
+Sorted next layers: ['F']
+
+Device 1 is running: F, starting at time 3.0000
+Dependencies now satisfied. Arrival time pool: [1.0, 3.0]
+Resuming at 3.0000 on device 1
+Finishing at time 9.0000
+Next layers: ['output']
+Sorted next layers: ['output']
+Device 0 sends layer input output at time 0 to device 2, latency 0.0000
+
+Device 2 is running: E, starting at time 0.0000
+Finishing at time 5.0000
+Next layers: ['output']
+Sorted next layers: ['output']
+
+Device 0 is running: C, starting at time 0.0000
+Finishing at time 3.0000
+Next layers: ['G']
+Sorted next layers: ['G']
+
+Device 0 is running: G, starting at time 3.0000
+Dependencies NOT satisfied. Ceasing at 3.0000 on device 0
+
+
+Device 0 is running: D, starting at time 3.0000
+Finishing at time 7.0000
+Next layers: ['G']
+Sorted next layers: ['G']
+
+Device 0 is running: G, starting at time 7.0000
+Dependencies now satisfied. Arrival time pool: [3, 7]
+Resuming at 7.0000 on device 0
+Finishing at time 14.0000
+Next layers: ['output']
+Sorted next layers: ['output']
+
+[30;42m=========Time Result=========[0m
+output_layer    time (s)       
+F               9.00000        
+E               5.00000        
+G               14.00000       
+
+[30;42m=========Time Result per Device=========[0m
+device          time (s)       
+0               14.00000       
+1               9.00000        
+2               5.00000        
+
+[30;42m=========Mem Result=========[0m
+device          cpu sum (MB)    cpu peak (MB)   cuda sum (MB)   cuda peak (MB) 
+0               14.0000         7               14.00           7              
+1               9.0000          6               9.00            6              
+2               5.0000          5               5.00            5              
+3               0.0000          0.0             0.00            0.0            
+4               0.0000          0.0             0.00            0.0            
+5               0.0000          0.0             0.00            0.0            
+
+[30;42m=========MACs Result=========[0m
+device          macs sum (M)    macs peak (M)  
+0               14.00           7              
+1               9.00            6              
+2               5.00            5              
+3               0.00            0.0            
+4               0.00            0.0            
+5               0.00            0.0            
