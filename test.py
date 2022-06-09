@@ -1,23 +1,15 @@
 import simulator
 
 simulator.Simulator(
-    "tolov4_dep.csv",
+    "dep(1).csv",
     [
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
-        "yolov4_prof.csv",
+        "prof(1).csv",
+        "prof(1).csv",
+        "prof(1).csv",
+        "prof(1).csv",
+        "prof(1).csv",
+        "prof(1).csv",
     ],
-    part_filename="yolov4_partition.csv",
+    part_filename="part(1).csv",
     # priority_filename="test_priority.csv",
 )

@@ -32,14 +32,17 @@ class Simulator(object):
         #      need to change device
 
         # load and initialize devices
+        parallel = True
+        print(f"Device parallel = {parallel}")
         if device_names is None:
             # TODO: should #device determined by prof?
             self.device_names = [str(i) for i in range(len(prof_filenames))]
         for name, prof_filename in zip(self.device_names, prof_filenames):
-            self.devices[name] = Device(name, prof_filename)
+            self.devices[name] = Device(name, prof_filename, parallel=parallel)
 
         # load dependencies and initialize all Layers
         self.load_dependencies(dep_filename)
+        self.load_macs_size(prof_filename)
 
         # if priority file is not given, init with even priorities
         if priority_filename is not None:
@@ -156,6 +159,7 @@ class Simulator(object):
                     cur_layer.arrival_time_pool.append(start_time)
                     # cease exec
                     print(f"Dependencies NOT satisfied. Ceasing at {start_time:.4f} on device {device.name}")
+                    print("")
                     return
             if len(cur_layer.arrival_time_pool) > 0:
                 cur_layer.arrival_time_pool.append(start_time)
@@ -190,7 +194,8 @@ class Simulator(object):
                     # transfer_latency = 0
                     transfer_latency = cur_layer.size / self.bandwidth
 
-                    print(f"Sending data to device {self.layers[next_layer_name].device_id}, "
+                    print(f"Device {device.name} sends layer {cur_layer.name} output at time {device.cur_time} "
+                          f"to device {self.layers[next_layer_name].device_id}, "
                           f"latency {transfer_latency:.4f}")
 
                     # change device
@@ -201,7 +206,6 @@ class Simulator(object):
                         self.device_exec(self.layers[next_layer_name].device_id,
                                          device.cur_time,
                                          next_layer_name)
-                        a=1
                     else:
                         self.device_exec(self.layers[next_layer_name].device_id,
                                          device.cur_time + transfer_latency,
