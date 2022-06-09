@@ -1,0 +1,74 @@
+['0', '1', '2', '3', '4', '5']
+Device name: 0, with layers: ['input', 'layer0', 'layer1', 'layer2', 'layer3', 'layer4', 'output']
+Device name: 1, with layers: []
+Device name: 2, with layers: []
+Device name: 3, with layers: []
+Device name: 4, with layers: []
+Device name: 5, with layers: []
+layer           device         
+input           0              
+layer0          0              
+layer1          0              
+layer2          0              
+layer3          0              
+layer4          0              
+output          0              
+Layer priority: {'input': 1, 'layer0': 1, 'layer1': 1, 'layer2': 1, 'layer3': 1, 'layer4': 1, 'output': 1}
+
+[30;44m=========Start Simulation=========[0m
+
+Device 0 is running: input, starting at time 0.0000
+Finishing at time 0.0000
+Next layers: ['layer0']
+Sorted next layers: ['layer0']
+
+Device 0 is running: layer0, starting at time 0.0000
+Finishing at time 1.0000
+Next layers: ['layer1']
+Sorted next layers: ['layer1']
+
+Device 0 is running: layer1, starting at time 1.0000
+Finishing at time 3.0000
+Next layers: ['layer2']
+Sorted next layers: ['layer2']
+
+Device 0 is running: layer2, starting at time 3.0000
+Finishing at time 6.0000
+Next layers: ['layer3']
+Sorted next layers: ['layer3']
+
+Device 0 is running: layer3, starting at time 6.0000
+Finishing at time 10.0000
+Next layers: ['layer4']
+Sorted next layers: ['layer4']
+
+Device 0 is running: layer4, starting at time 10.0000
+Finishing at time 15.0000
+Next layers: ['output']
+Sorted next layers: ['output']
+
+[30;42m=========Time Result=========[0m
+output_layer    time (s)       
+layer4          15.00000       
+
+[30;42m=========Time Result per Device=========[0m
+device          time (s)       
+0               15.00000       
+
+[30;42m=========Mem Result=========[0m
+device          cpu sum (MB)    cpu peak (MB)   cuda sum (MB)   cuda peak (MB) 
+0               15.0000         5               15.00           5              
+1               0.0000          0.0             0.00            0.0            
+2               0.0000          0.0             0.00            0.0            
+3               0.0000          0.0             0.00            0.0            
+4               0.0000          0.0             0.00            0.0            
+5               0.0000          0.0             0.00            0.0            
+
+[30;42m=========MACs Result=========[0m
+device          macs sum (M)    macs peak (M)  
+0               15.00           5              
+1               0.00            0.0            
+2               0.00            0.0            
+3               0.00            0.0            
+4               0.00            0.0            
+5               0.00            0.0            

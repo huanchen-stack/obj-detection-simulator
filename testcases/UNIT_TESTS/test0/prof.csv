@@ -1,0 +1,8 @@
+layer_name,time,cpu_mem,cuda_mem,size, macs
+input,0,0,0,0,0
+layer0,1,1,1,1,1
+layer1,2,2,2,2,2
+layer2,3,3,3,3,3
+layer3,4,4,4,4,4
+layer4,5,5,5,5,5
+output,0,0,0,0,0

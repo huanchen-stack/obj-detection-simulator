@@ -1,0 +1,8 @@
+src,dst
+input,A
+A,B
+B,C
+C,D
+D,output
+A,C
+B,D

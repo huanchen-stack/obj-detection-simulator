@@ -1,0 +1,76 @@
+['0', '1', '2', '3', '4', '5']
+Device name: 0, with layers: ['input', 'A', 'C', 'output']
+Device name: 1, with layers: ['B', 'D']
+Device name: 2, with layers: []
+Device name: 3, with layers: []
+Device name: 4, with layers: []
+Device name: 5, with layers: []
+layer           device         
+input           0              
+A               0              
+B               1              
+C               0              
+D               1              
+output          0              
+Layer priority: {'input': 1, 'A': 1, 'B': 1, 'C': 1, 'D': 1, 'output': 1}
+
+[30;44m=========Start Simulation=========[0m
+
+Device 0 is running: input, starting at time 0.0000
+Finishing at time 0.0000
+Next layers: ['A']
+Sorted next layers: ['A']
+
+Device 0 is running: A, starting at time 0.0000
+Finishing at time 1.0000
+Next layers: ['B', 'C']
+Sorted next layers: ['B', 'C']
+Sending data to device 1, latency 0.0050
+
+Device 1 is running: B, starting at time 1.0050
+Finishing at time 3.0050
+Next layers: ['D']
+Sorted next layers: ['D']
+
+Device 1 is running: D, starting at time 3.0050
+Dependencies NOT satisfied. Ceasing at 3.0050 on device 1
+
+Device 0 is running: C, starting at time 1.0000
+Finishing at time 4.0000
+Next layers: ['D']
+Sorted next layers: ['D']
+Sending data to device 1, latency 0.0150
+
+Device 1 is running: D, starting at time 4.0150
+Dependencies now satisfied. Arrival time pool: [3.005, 4.015]
+Resuming at 4.0150 on device 1
+Finishing at time 8.0150
+Next layers: ['output']
+Sorted next layers: ['output']
+
+[30;42m=========Time Result=========[0m
+output_layer    time (s)       
+D               8.01500        
+
+[30;42m=========Time Result per Device=========[0m
+device          time (s)       
+0               4.00000        
+1               6.00000        
+
+[30;42m=========Mem Result=========[0m
+device          cpu sum (MB)    cpu peak (MB)   cuda sum (MB)   cuda peak (MB) 
+0               4.0000          3               4.00            3              
+1               6.0000          4               6.00            4              
+2               0.0000          0.0             0.00            0.0            
+3               0.0000          0.0             0.00            0.0            
+4               0.0000          0.0             0.00            0.0            
+5               0.0000          0.0             0.00            0.0            
+
+[30;42m=========MACs Result=========[0m
+device          macs sum (M)    macs peak (M)  
+0               4.00            3              
+1               6.00            4              
+2               0.00            0.0            
+3               0.00            0.0            
+4               0.00            0.0            
+5               0.00            0.0            

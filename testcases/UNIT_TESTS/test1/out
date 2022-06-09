@@ -1,0 +1,82 @@
+['0', '1', '2', '3', '4', '5']
+Device name: 0, with layers: ['input', 'layer0', 'output']
+Device name: 1, with layers: ['layer1']
+Device name: 2, with layers: ['layer2']
+Device name: 3, with layers: ['layer3']
+Device name: 4, with layers: ['layer4']
+Device name: 5, with layers: []
+layer           device         
+input           0              
+layer0          0              
+layer1          1              
+layer2          2              
+layer3          3              
+layer4          4              
+output          0              
+Layer priority: {'input': 1, 'layer0': 1, 'layer1': 1, 'layer2': 1, 'layer3': 1, 'layer4': 1, 'output': 1}
+
+[30;44m=========Start Simulation=========[0m
+
+Device 0 is running: input, starting at time 0.0000
+Finishing at time 0.0000
+Next layers: ['layer0']
+Sorted next layers: ['layer0']
+
+Device 0 is running: layer0, starting at time 0.0000
+Finishing at time 1.0000
+Next layers: ['layer1']
+Sorted next layers: ['layer1']
+Sending data to device 1, latency 0.0050
+
+Device 1 is running: layer1, starting at time 1.0050
+Finishing at time 3.0050
+Next layers: ['layer2']
+Sorted next layers: ['layer2']
+Sending data to device 2, latency 0.0100
+
+Device 2 is running: layer2, starting at time 3.0150
+Finishing at time 6.0150
+Next layers: ['layer3']
+Sorted next layers: ['layer3']
+Sending data to device 3, latency 0.0150
+
+Device 3 is running: layer3, starting at time 6.0300
+Finishing at time 10.0300
+Next layers: ['layer4']
+Sorted next layers: ['layer4']
+Sending data to device 4, latency 0.0200
+
+Device 4 is running: layer4, starting at time 10.0500
+Finishing at time 15.0500
+Next layers: ['output']
+Sorted next layers: ['output']
+
+[30;42m=========Time Result=========[0m
+output_layer    time (s)       
+layer4          15.05000       
+
+[30;42m=========Time Result per Device=========[0m
+device          time (s)       
+0               1.00000        
+1               2.00000        
+2               3.00000        
+3               4.00000        
+4               5.00000        
+
+[30;42m=========Mem Result=========[0m
+device          cpu sum (MB)    cpu peak (MB)   cuda sum (MB)   cuda peak (MB) 
+0               1.0000          1               1.00            1              
+1               2.0000          2               2.00            2              
+2               3.0000          3               3.00            3              
+3               4.0000          4               4.00            4              
+4               5.0000          5               5.00            5              
+5               0.0000          0.0             0.00            0.0            
+
+[30;42m=========MACs Result=========[0m
+device          macs sum (M)    macs peak (M)  
+0               1.00            1              
+1               2.00            2              
+2               3.00            3              
+3               4.00            4              
+4               5.00            5              
+5               0.00            0.0            
