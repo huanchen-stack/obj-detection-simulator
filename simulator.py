@@ -156,6 +156,7 @@ class Simulator(object):
             print("")
             print(f"Device {device.name} is running: {start_layer_name}, starting at time {start_time:.4f}")
             cur_layer = self.layers[start_layer_name]
+            num_needed_alien_data = 0
             for dep in cur_layer.dependencies:
                 if not self.layers[dep].completed:
                     cur_layer.arrival_time_pool.append(start_time)
@@ -163,6 +164,12 @@ class Simulator(object):
                     print(f"Dependencies NOT satisfied. Ceasing at {start_time:.4f} on device {device.name}")
                     print("")
                     return
+                if self.layers[dep].device_id != device.name:
+                    num_needed_alien_data += 1
+            if len(cur_layer.arrival_time_pool) < num_needed_alien_data - 1:
+                cur_layer.arrival_time_pool.append(start_time)
+                print("Dependencies satisfied, but is missing data. Returning to previous device(s). ")
+                return
             if len(cur_layer.arrival_time_pool) > 0:
                 cur_layer.arrival_time_pool.append(start_time)
                 device.cur_time = max(cur_layer.arrival_time_pool)
@@ -193,10 +200,10 @@ class Simulator(object):
                     self.time_result[start_layer_name] = device.cur_time
                     continue
                 if self.layers[next_layer_name].device_id != device_id:
-                    # transfer_latency = 0
-                    transfer_latency = cur_layer.size / self.bandwidth
+                    transfer_latency = 0
+                    # transfer_latency = cur_layer.size / self.bandwidth
 
-                    print(f"Device {device.name} sends layer {cur_layer.name} output at time {device.cur_time} "
+                    print(f"Device {device.name} sends layer {cur_layer.name} output at time {device.cur_time: .4f} "
                           f"to device {self.layers[next_layer_name].device_id}, "
                           f"latency {transfer_latency:.4f}")
 
