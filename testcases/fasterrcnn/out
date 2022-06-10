@@ -46,7 +46,7 @@ bbox_pred_roi_  1
 postprocess_detections 1              
 postprocess_resize 1              
 output          1              
-Layer priority: {'input': 1, 'transform': 1, 'conv1': 1, 'bn1': 1, 'relu': 1, 'maxpool': 1, 'layer1': 1, 'layer2': 1, 'layer3': 1, 'layer4': 1, 'inner_3': 1, 'layer_3': 1, 'inner_2': 1, 'interpolate__2': 1, 'add__2': 1, 'layer_2': 1, 'inner_1': 1, 'interpolate__1': 1, 'add__1': 1, 'layer_1': 1, 'inner_0': 1, 'interpolate__0': 1, 'add__0': 1, 'layer_0': 1, 'extra': 1, 'rpn_parallel_f0': 1, 'rpn_merger': 1, 'rpn_parallel_f1': 1, 'rpn_parallel_f2': 1, 'rpn_parallel_f3': 1, 'rpn_parallel_f4': 1, 'box_roi_pool': 1, 'fc6': 1, 'fc7': 1, 'cls_score': 1, 'bbox_pred_roi_': 1, 'postprocess_detections': 1, 'postprocess_resize': 1, 'output': 1}
+Layer priority: {'input': 1, 'transform': 1, 'conv1': 1, 'bn1': 1, 'relu': 1, 'maxpool': 1, 'layer1': 1, 'layer2': 1, 'layer3': 1, 'layer4': 1, 'inner_3': 1, 'inner_2': 1, 'inner_1': 1, 'inner_0': 1, 'layer_3': 2, 'layer_2': 2, 'layer_1': 2, 'layer_0': 2, 'extra': 1, 'interpolate__2': 1, 'interpolate__1': 1, 'interpolate__0': 1, 'add__2': 1, 'add__1': 1, 'add__0': 1, 'rpn_parallel_f0': 1, 'rpn_parallel_f1': 1, 'rpn_parallel_f2': 1, 'rpn_parallel_f3': 1, 'rpn_parallel_f4': 1, 'rpn_merger': 2, 'box_roi_pool': 2, 'fc6': 1, 'fc7': 1, 'cls_score': 1, 'bbox_pred_roi_': 1, 'postprocess_detections': 1, 'postprocess_resize': 1, 'output': 1}
 
 [30;44m=========Start Simulation=========[0m
 
@@ -104,42 +104,42 @@ Device 0 is running: inner_3, starting at time 0.0156
 Finishing at time 0.0157
 Next layers: ['layer_3', 'interpolate__2']
 Sorted next layers: ['layer_3', 'interpolate__2']
-Device 0 sends layer inner_3 output at time 0.0157001 to device 1, latency 0.0003
+Device 0 sends layer inner_3 output at time 0.0157001 to device 1, latency 0.0004
 
-Device 1 is running: layer_3, starting at time 0.0160
-Finishing at time 0.0161
-Next layers: ['extra', 'rpn_parallel_f3', 'box_roi_pool']
-Sorted next layers: ['extra', 'rpn_parallel_f3', 'box_roi_pool']
-
-Device 1 is running: extra, starting at time 0.0161
+Device 1 is running: layer_3, starting at time 0.0161
 Finishing at time 0.0162
+Next layers: ['extra', 'rpn_parallel_f3', 'box_roi_pool']
+Sorted next layers: ['box_roi_pool', 'extra', 'rpn_parallel_f3']
+
+Device 1 is running: box_roi_pool, starting at time 0.0162
+Dependencies NOT satisfied. Ceasing at 0.0162 on device 1
+
+
+Device 1 is running: extra, starting at time 0.0162
+Finishing at time 0.0163
 Next layers: ['rpn_parallel_f4', 'box_roi_pool']
-Sorted next layers: ['rpn_parallel_f4', 'box_roi_pool']
+Sorted next layers: ['box_roi_pool', 'rpn_parallel_f4']
 
-Device 1 is running: rpn_parallel_f4, starting at time 0.0162
-Finishing at time 0.0185
+Device 1 is running: box_roi_pool, starting at time 0.0163
+Dependencies NOT satisfied. Ceasing at 0.0163 on device 1
+
+
+Device 1 is running: rpn_parallel_f4, starting at time 0.0163
+Finishing at time 0.0186
 Next layers: ['rpn_merger']
 Sorted next layers: ['rpn_merger']
 
-Device 1 is running: rpn_merger, starting at time 0.0185
-Dependencies NOT satisfied. Ceasing at 0.0185 on device 1
+Device 1 is running: rpn_merger, starting at time 0.0186
+Dependencies NOT satisfied. Ceasing at 0.0186 on device 1
 
 
-Device 1 is running: box_roi_pool, starting at time 0.0185
-Dependencies NOT satisfied. Ceasing at 0.0185 on device 1
-
-
-Device 1 is running: rpn_parallel_f3, starting at time 0.0185
-Finishing at time 0.0209
+Device 1 is running: rpn_parallel_f3, starting at time 0.0186
+Finishing at time 0.0210
 Next layers: ['rpn_merger']
 Sorted next layers: ['rpn_merger']
 
-Device 1 is running: rpn_merger, starting at time 0.0209
-Dependencies NOT satisfied. Ceasing at 0.0209 on device 1
-
-
-Device 1 is running: box_roi_pool, starting at time 0.0209
-Dependencies NOT satisfied. Ceasing at 0.0209 on device 1
+Device 1 is running: rpn_merger, starting at time 0.0210
+Dependencies NOT satisfied. Ceasing at 0.0210 on device 1
 
 
 Device 0 is running: interpolate__2, starting at time 0.0157
@@ -162,24 +162,24 @@ Resuming at 0.0158 on device 0
 Finishing at time 0.0158
 Next layers: ['layer_2', 'interpolate__1']
 Sorted next layers: ['layer_2', 'interpolate__1']
-Device 0 sends layer add__2 output at time 0.015842000000000002 to device 1, latency 0.0013
+Device 0 sends layer add__2 output at time 0.015842000000000002 to device 1, latency 0.0017
 
-Device 1 is running: layer_2, starting at time 0.0209
-Finishing at time 0.0210
+Device 1 is running: layer_2, starting at time 0.0210
+Finishing at time 0.0211
 Next layers: ['rpn_parallel_f2', 'box_roi_pool']
-Sorted next layers: ['rpn_parallel_f2', 'box_roi_pool']
+Sorted next layers: ['box_roi_pool', 'rpn_parallel_f2']
 
-Device 1 is running: rpn_parallel_f2, starting at time 0.0210
-Finishing at time 0.0234
+Device 1 is running: box_roi_pool, starting at time 0.0211
+Dependencies NOT satisfied. Ceasing at 0.0211 on device 1
+
+
+Device 1 is running: rpn_parallel_f2, starting at time 0.0211
+Finishing at time 0.0235
 Next layers: ['rpn_merger']
 Sorted next layers: ['rpn_merger']
 
-Device 1 is running: rpn_merger, starting at time 0.0234
-Dependencies NOT satisfied. Ceasing at 0.0234 on device 1
-
-
-Device 1 is running: box_roi_pool, starting at time 0.0234
-Dependencies NOT satisfied. Ceasing at 0.0234 on device 1
+Device 1 is running: rpn_merger, starting at time 0.0235
+Dependencies NOT satisfied. Ceasing at 0.0235 on device 1
 
 
 Device 0 is running: interpolate__1, starting at time 0.0158
@@ -202,24 +202,24 @@ Resuming at 0.0165 on device 0
 Finishing at time 0.0165
 Next layers: ['layer_1', 'interpolate__0']
 Sorted next layers: ['layer_1', 'interpolate__0']
-Device 0 sends layer add__1 output at time 0.016465900000000002 to device 1, latency 0.0051
+Device 0 sends layer add__1 output at time 0.016465900000000002 to device 1, latency 0.0068
 
-Device 1 is running: layer_1, starting at time 0.0234
-Finishing at time 0.0236
+Device 1 is running: layer_1, starting at time 0.0235
+Finishing at time 0.0237
 Next layers: ['rpn_parallel_f1', 'box_roi_pool']
-Sorted next layers: ['rpn_parallel_f1', 'box_roi_pool']
+Sorted next layers: ['box_roi_pool', 'rpn_parallel_f1']
 
-Device 1 is running: rpn_parallel_f1, starting at time 0.0236
-Finishing at time 0.0265
+Device 1 is running: box_roi_pool, starting at time 0.0237
+Dependencies NOT satisfied. Ceasing at 0.0237 on device 1
+
+
+Device 1 is running: rpn_parallel_f1, starting at time 0.0237
+Finishing at time 0.0266
 Next layers: ['rpn_merger']
 Sorted next layers: ['rpn_merger']
 
-Device 1 is running: rpn_merger, starting at time 0.0265
-Dependencies NOT satisfied. Ceasing at 0.0265 on device 1
-
-
-Device 1 is running: box_roi_pool, starting at time 0.0265
-Dependencies NOT satisfied. Ceasing at 0.0265 on device 1
+Device 1 is running: rpn_merger, starting at time 0.0266
+Dependencies NOT satisfied. Ceasing at 0.0266 on device 1
 
 
 Device 0 is running: interpolate__0, starting at time 0.0165
@@ -246,7 +246,12 @@ Sorted next layers: ['layer_0']
 Device 0 is running: layer_0, starting at time 0.0166
 Finishing at time 0.0167
 Next layers: ['rpn_parallel_f0', 'box_roi_pool']
-Sorted next layers: ['rpn_parallel_f0', 'box_roi_pool']
+Sorted next layers: ['box_roi_pool', 'rpn_parallel_f0']
+Device 0 sends layer layer_0 output at time 0.016721700000000006 to device 1, latency 0.0273
+
+Device 1 is running: box_roi_pool, starting at time 0.0440
+Dependencies NOT satisfied. Ceasing at 0.0440 on device 1
+
 
 Device 0 is running: rpn_parallel_f0, starting at time 0.0167
 Finishing at time 0.0227
@@ -254,59 +259,59 @@ Next layers: ['rpn_merger']
 Sorted next layers: ['rpn_merger']
 Device 0 sends layer rpn_parallel_f0 output at time 0.022658700000000004 to device 1, latency 0.0000
 
-Device 1 is running: rpn_merger, starting at time 0.0265
-Dependencies now satisfied. Arrival time pool: [0.018535500000000003, 0.020918500000000003, 0.023437100000000002, 0.026529300000000002, 0.026529300000000002]
-Resuming at 0.0265 on device 1
-Finishing at time 0.0457
+Device 1 is running: rpn_merger, starting at time 0.0266
+Dependencies now satisfied. Arrival time pool: [0.018642166666666668, 0.021025166666666668, 0.023543766666666667, 0.026635966666666667, 0.026635966666666667]
+Resuming at 0.0266 on device 1
+Finishing at time 0.0458
 Next layers: ['box_roi_pool', 'postprocess_detections']
 Sorted next layers: ['box_roi_pool', 'postprocess_detections']
 
-Device 1 is running: box_roi_pool, starting at time 0.0457
-Dependencies now satisfied. Arrival time pool: [0.018535500000000003, 0.020918500000000003, 0.023437100000000002, 0.026529300000000002, 0.045719300000000004]
-Resuming at 0.0457 on device 1
-Finishing at time 0.0500
+Device 1 is running: box_roi_pool, starting at time 0.0458
+Dependencies now satisfied. Arrival time pool: [0.01624046666666667, 0.016283166666666668, 0.021131766666666666, 0.023656966666666668, 0.04402836666666667, 0.04582596666666666]
+Resuming at 0.0458 on device 1
+Finishing at time 0.0501
 Next layers: ['fc6']
 Sorted next layers: ['fc6']
 
-Device 1 is running: fc6, starting at time 0.0500
-Finishing at time 0.0501
+Device 1 is running: fc6, starting at time 0.0501
+Finishing at time 0.0502
 Next layers: ['fc7']
 Sorted next layers: ['fc7']
 
-Device 1 is running: fc7, starting at time 0.0501
-Finishing at time 0.0502
+Device 1 is running: fc7, starting at time 0.0502
+Finishing at time 0.0503
 Next layers: ['cls_score', 'bbox_pred_roi_']
 Sorted next layers: ['cls_score', 'bbox_pred_roi_']
 
-Device 1 is running: cls_score, starting at time 0.0502
-Finishing at time 0.0503
-Next layers: ['postprocess_detections']
-Sorted next layers: ['postprocess_detections']
-
-Device 1 is running: postprocess_detections, starting at time 0.0503
-Dependencies NOT satisfied. Ceasing at 0.0503 on device 1
-
-
-Device 1 is running: bbox_pred_roi_, starting at time 0.0503
+Device 1 is running: cls_score, starting at time 0.0503
 Finishing at time 0.0504
 Next layers: ['postprocess_detections']
 Sorted next layers: ['postprocess_detections']
 
 Device 1 is running: postprocess_detections, starting at time 0.0504
-Dependencies now satisfied. Arrival time pool: [0.050281700000000006, 0.0503721]
-Resuming at 0.0504 on device 1
-Finishing at time 0.0529
+Dependencies NOT satisfied. Ceasing at 0.0504 on device 1
+
+
+Device 1 is running: bbox_pred_roi_, starting at time 0.0504
+Finishing at time 0.0505
+Next layers: ['postprocess_detections']
+Sorted next layers: ['postprocess_detections']
+
+Device 1 is running: postprocess_detections, starting at time 0.0505
+Dependencies now satisfied. Arrival time pool: [0.05038836666666666, 0.05047876666666666]
+Resuming at 0.0505 on device 1
+Finishing at time 0.0530
 Next layers: ['postprocess_resize']
 Sorted next layers: ['postprocess_resize']
 
-Device 1 is running: postprocess_resize, starting at time 0.0529
-Finishing at time 0.0529
+Device 1 is running: postprocess_resize, starting at time 0.0530
+Finishing at time 0.0530
 Next layers: ['output']
 Sorted next layers: ['output']
 
 [30;42m=========Time Result=========[0m
 output_layer    time (s)       
-postprocess_resize 0.05290        
+postprocess_resize 0.05301        
 
 [30;42m=========Time Result per Device=========[0m
 device          time (s)       
