@@ -86,6 +86,11 @@ hd_conv14,hd_conv15
 hd_conv15,hd_conv16
 hd_conv16,hd_conv17
 hd_conv17,hd_conv18
-hd_conv2,output
-hd_conv10,output
-hd_conv18,output
+hd_conv2,decode1
+hd_conv10,decode2
+hd_conv18,decode3
+decode1,non_max_suppression
+decode2,non_max_suppression
+decode3,non_max_suppression
+non_max_suppression,wrapping_up
+wrapping_up,output
