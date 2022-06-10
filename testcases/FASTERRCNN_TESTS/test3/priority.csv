@@ -1,0 +1,13 @@
+layer_name,priority
+input,1
+rpn_mergerin,1
+box_roi_poolin,1
+rpn_merger,1
+box_roi_pool,1
+fc6,1
+fc7,1
+cls_score,1
+bbox_pred_roi_,1
+postprocess_detections,1
+postprocess_resize,1
+output,100

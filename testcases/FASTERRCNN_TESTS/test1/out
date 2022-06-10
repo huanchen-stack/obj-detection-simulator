@@ -1,0 +1,181 @@
+Device parallel = True
+['0', '1', '2', '3', '4', '5']
+Device name: 0, with layers: ['input', 'layer1out', 'layer2out', 'layer3out', 'layer4out', 'inner_3', 'layer_3', 'inner_2', 'interpolate__2', 'layer_2', 'inner_1', 'interpolate__1', 'layer_1', 'inner_0', 'interpolate__0', 'layer_0', 'extra', 'add__2', 'add__1', 'add__0', 'output']
+Device name: 1, with layers: []
+Device name: 2, with layers: []
+Device name: 3, with layers: []
+Device name: 4, with layers: []
+Device name: 5, with layers: []
+layer           device         
+input           0              
+layer1out       0              
+layer2out       0              
+layer3out       0              
+layer4out       0              
+inner_3         0              
+layer_3         0              
+inner_2         0              
+interpolate__2  0              
+add__2          0              
+layer_2         0              
+inner_1         0              
+interpolate__1  0              
+add__1          0              
+layer_1         0              
+inner_0         0              
+interpolate__0  0              
+add__0          0              
+layer_0         0              
+extra           0              
+output          0              
+Layer priority: {'input': 1, 'layer1out': 1, 'layer2out': 1, 'layer3out': 1, 'layer4out': 1, 'inner_3': 1, 'layer_3': 1, 'inner_2': 1, 'interpolate__2': 1, 'layer_2': 1, 'inner_1': 1, 'interpolate__1': 1, 'layer_1': 1, 'inner_0': 1, 'interpolate__0': 1, 'layer_0': 1, 'extra': 1, 'add__2': 1, 'add__1': 1, 'add__0': 1, 'output': 100}
+
+[30;44m=========Start Simulation=========[0m
+
+Device 0 is running: input, starting at time 0.0000
+Finishing at time 0.0000
+Next layers: ['layer1out', 'layer2out', 'layer3out', 'layer4out']
+Sorted next layers: ['layer1out', 'layer2out', 'layer3out', 'layer4out']
+
+Device 0 is running: layer1out, starting at time 0.0000
+Finishing at time 0.0000
+Next layers: ['inner_0']
+Sorted next layers: ['inner_0']
+
+Device 0 is running: inner_0, starting at time 0.0000
+Finishing at time 0.0001
+Next layers: ['add__0']
+Sorted next layers: ['add__0']
+
+Device 0 is running: add__0, starting at time 0.0001
+Dependencies NOT satisfied. Ceasing at 0.0001 on device 0
+
+
+Device 0 is running: layer2out, starting at time 0.0001
+Finishing at time 0.0001
+Next layers: ['inner_1']
+Sorted next layers: ['inner_1']
+
+Device 0 is running: inner_1, starting at time 0.0001
+Finishing at time 0.0007
+Next layers: ['add__1']
+Sorted next layers: ['add__1']
+
+Device 0 is running: add__1, starting at time 0.0007
+Dependencies NOT satisfied. Ceasing at 0.0007 on device 0
+
+
+Device 0 is running: layer3out, starting at time 0.0007
+Finishing at time 0.0007
+Next layers: ['inner_2']
+Sorted next layers: ['inner_2']
+
+Device 0 is running: inner_2, starting at time 0.0007
+Finishing at time 0.0008
+Next layers: ['add__2']
+Sorted next layers: ['add__2']
+
+Device 0 is running: add__2, starting at time 0.0008
+Dependencies NOT satisfied. Ceasing at 0.0008 on device 0
+
+
+Device 0 is running: layer4out, starting at time 0.0008
+Finishing at time 0.0008
+Next layers: ['inner_3']
+Sorted next layers: ['inner_3']
+
+Device 0 is running: inner_3, starting at time 0.0008
+Finishing at time 0.0009
+Next layers: ['layer_3', 'interpolate__2']
+Sorted next layers: ['layer_3', 'interpolate__2']
+
+Device 0 is running: layer_3, starting at time 0.0009
+Finishing at time 0.0010
+Next layers: ['extra', 'output']
+Sorted next layers: ['output', 'extra']
+
+Device 0 is running: extra, starting at time 0.0010
+Finishing at time 0.0011
+Next layers: ['output']
+Sorted next layers: ['output']
+
+Device 0 is running: interpolate__2, starting at time 0.0011
+Finishing at time 0.0011
+Next layers: ['add__2']
+Sorted next layers: ['add__2']
+
+Device 0 is running: add__2, starting at time 0.0011
+Dependencies now satisfied. Arrival time pool: [0.0007951, 0.0011012999999999997]
+Resuming at 0.0011 on device 0
+Finishing at time 0.0011
+Next layers: ['layer_2', 'interpolate__1']
+Sorted next layers: ['layer_2', 'interpolate__1']
+
+Device 0 is running: layer_2, starting at time 0.0011
+Finishing at time 0.0012
+Next layers: ['output']
+Sorted next layers: ['output']
+
+Device 0 is running: interpolate__1, starting at time 0.0012
+Finishing at time 0.0012
+Next layers: ['add__1']
+Sorted next layers: ['add__1']
+
+Device 0 is running: add__1, starting at time 0.0012
+Dependencies now satisfied. Arrival time pool: [0.0006933, 0.0012445999999999998]
+Resuming at 0.0012 on device 0
+Finishing at time 0.0012
+Next layers: ['layer_1', 'interpolate__0']
+Sorted next layers: ['layer_1', 'interpolate__0']
+
+Device 0 is running: layer_1, starting at time 0.0012
+Finishing at time 0.0014
+Next layers: ['output']
+Sorted next layers: ['output']
+
+Device 0 is running: interpolate__0, starting at time 0.0014
+Finishing at time 0.0014
+Next layers: ['add__0']
+Sorted next layers: ['add__0']
+
+Device 0 is running: add__0, starting at time 0.0014
+Dependencies now satisfied. Arrival time pool: [0.0001061, 0.0013949999999999998]
+Resuming at 0.0014 on device 0
+Finishing at time 0.0014
+Next layers: ['layer_0']
+Sorted next layers: ['layer_0']
+
+Device 0 is running: layer_0, starting at time 0.0014
+Finishing at time 0.0015
+Next layers: ['output']
+Sorted next layers: ['output']
+
+[30;42m=========Time Result=========[0m
+output_layer    time (s)       
+layer_3         0.00102        
+extra           0.00106        
+layer_2         0.00121        
+layer_1         0.00136        
+layer_0         0.00151        
+
+[30;42m=========Time Result per Device=========[0m
+device          time (s)       
+0               0.00151        
+
+[30;42m=========Mem Result=========[0m
+device          cpu sum (MB)    cpu peak (MB)   cuda sum (MB)   cuda peak (MB) 
+0               0.0045          0.000372        503.07          166.3          
+1               0.0000          0.0             0.00            0.0            
+2               0.0000          0.0             0.00            0.0            
+3               0.0000          0.0             0.00            0.0            
+4               0.0000          0.0             0.00            0.0            
+5               0.0000          0.0             0.00            0.0            
+
+[30;42m=========MACs Result=========[0m
+device          macs sum (M)    macs peak (M)  
+0               0.00            0              
+1               0.00            0.0            
+2               0.00            0.0            
+3               0.00            0.0            
+4               0.00            0.0            
+5               0.00            0.0            

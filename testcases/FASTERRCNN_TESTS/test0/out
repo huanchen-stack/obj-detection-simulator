@@ -1,0 +1,150 @@
+Device parallel = True
+['0', '1', '2', '3', '4', '5']
+Device name: 0, with layers: ['input', 'transform', 'conv1', 'bn1', 'relu', 'maxpool', 'layer1', 'layer2', 'layer3', 'layer4', 'inner_3', 'inner_2', 'inner_1', 'inner_0', 'output0', 'output1', 'output2', 'output3', 'output']
+Device name: 1, with layers: []
+Device name: 2, with layers: []
+Device name: 3, with layers: []
+Device name: 4, with layers: []
+Device name: 5, with layers: []
+layer           device         
+input           0              
+transform       0              
+conv1           0              
+bn1             0              
+relu            0              
+maxpool         0              
+layer1          0              
+layer2          0              
+layer3          0              
+layer4          0              
+inner_3         0              
+output3         0              
+inner_2         0              
+output2         0              
+inner_1         0              
+output1         0              
+inner_0         0              
+output0         0              
+output          0              
+Layer priority: {'input': 1, 'transform': 1, 'conv1': 1, 'bn1': 1, 'relu': 1, 'maxpool': 1, 'layer1': 1, 'layer2': 1, 'layer3': 1, 'layer4': 1, 'inner_3': 1, 'inner_2': 1, 'inner_1': 1, 'inner_0': 1, 'output0': 1, 'output1': 1, 'output2': 1, 'output3': 1, 'output': 100}
+
+[30;44m=========Start Simulation=========[0m
+
+Device 0 is running: input, starting at time 0.0000
+Finishing at time 0.0000
+Next layers: ['transform']
+Sorted next layers: ['transform']
+
+Device 0 is running: transform, starting at time 0.0000
+Finishing at time 0.0003
+Next layers: ['conv1']
+Sorted next layers: ['conv1']
+
+Device 0 is running: conv1, starting at time 0.0003
+Finishing at time 0.0004
+Next layers: ['bn1']
+Sorted next layers: ['bn1']
+
+Device 0 is running: bn1, starting at time 0.0004
+Finishing at time 0.0006
+Next layers: ['relu']
+Sorted next layers: ['relu']
+
+Device 0 is running: relu, starting at time 0.0006
+Finishing at time 0.0007
+Next layers: ['maxpool']
+Sorted next layers: ['maxpool']
+
+Device 0 is running: maxpool, starting at time 0.0007
+Finishing at time 0.0007
+Next layers: ['layer1']
+Sorted next layers: ['layer1']
+
+Device 0 is running: layer1, starting at time 0.0007
+Finishing at time 0.0033
+Next layers: ['layer2', 'inner_0']
+Sorted next layers: ['layer2', 'inner_0']
+
+Device 0 is running: layer2, starting at time 0.0033
+Finishing at time 0.0072
+Next layers: ['layer3', 'inner_1']
+Sorted next layers: ['layer3', 'inner_1']
+
+Device 0 is running: layer3, starting at time 0.0072
+Finishing at time 0.0127
+Next layers: ['layer4', 'inner_2']
+Sorted next layers: ['layer4', 'inner_2']
+
+Device 0 is running: layer4, starting at time 0.0127
+Finishing at time 0.0156
+Next layers: ['inner_3']
+Sorted next layers: ['inner_3']
+
+Device 0 is running: inner_3, starting at time 0.0156
+Finishing at time 0.0157
+Next layers: ['output3']
+Sorted next layers: ['output3']
+
+Device 0 is running: output3, starting at time 0.0157
+Finishing at time 0.0157
+Next layers: ['output']
+Sorted next layers: ['output']
+
+Device 0 is running: inner_2, starting at time 0.0157
+Finishing at time 0.0158
+Next layers: ['output2']
+Sorted next layers: ['output2']
+
+Device 0 is running: output2, starting at time 0.0158
+Finishing at time 0.0158
+Next layers: ['output']
+Sorted next layers: ['output']
+
+Device 0 is running: inner_1, starting at time 0.0158
+Finishing at time 0.0164
+Next layers: ['output1']
+Sorted next layers: ['output1']
+
+Device 0 is running: output1, starting at time 0.0164
+Finishing at time 0.0164
+Next layers: ['output']
+Sorted next layers: ['output']
+
+Device 0 is running: inner_0, starting at time 0.0164
+Finishing at time 0.0165
+Next layers: ['output0']
+Sorted next layers: ['output0']
+
+Device 0 is running: output0, starting at time 0.0165
+Finishing at time 0.0165
+Next layers: ['output']
+Sorted next layers: ['output']
+
+[30;42m=========Time Result=========[0m
+output_layer    time (s)       
+output3         0.01570        
+output2         0.01580        
+output1         0.01639        
+output0         0.01650        
+
+[30;42m=========Time Result per Device=========[0m
+device          time (s)       
+0               0.01650        
+
+[30;42m=========Mem Result=========[0m
+device          cpu sum (MB)    cpu peak (MB)   cuda sum (MB)   cuda peak (MB) 
+0               0.0050          0.000516        3,691.69        1314.0         
+1               0.0000          0.0             0.00            0.0            
+2               0.0000          0.0             0.00            0.0            
+3               0.0000          0.0             0.00            0.0            
+4               0.0000          0.0             0.00            0.0            
+5               0.0000          0.0             0.00            0.0            
+
+[30;42m=========MACs Result=========[0m
+device          macs sum (M)    macs peak (M)  
+0               0.00            0              
+1               0.00            0.0            
+2               0.00            0.0            
+3               0.00            0.0            
+4               0.00            0.0            
+5               0.00            0.0            

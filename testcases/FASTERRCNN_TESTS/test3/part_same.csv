@@ -1,0 +1,13 @@
+layer_name,device
+input,0
+rpn_mergerin,0
+box_roi_poolin,0
+rpn_merger,0
+box_roi_pool,0
+fc6,0
+fc7,0
+cls_score,0
+bbox_pred_roi_,0
+postprocess_detections,0
+postprocess_resize,0
+output,0

@@ -1,0 +1,14 @@
+src,dst
+input,rpn_mergerin
+input,box_roi_poolin
+rpn_mergerin,rpn_merger
+box_roi_poolin,box_roi_pool
+box_roi_pool,fc6
+fc6,fc7
+fc7,cls_score
+fc7,bbox_pred_roi_
+cls_score,postprocess_detections
+bbox_pred_roi_,postprocess_detections
+rpn_merger,postprocess_detections
+postprocess_detections,postprocess_resize
+postprocess_resize,output

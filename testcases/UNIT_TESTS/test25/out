@@ -32,13 +32,13 @@ Device 0 is running: B, starting at time 1.0000
 Finishing at time 3.0000
 Next layers: ['output']
 Sorted next layers: ['output']
-Device 0 sends layer input output at time 3 to device 1, latency 0.0000
+Device 0 sends layer input output at time  3.0000 to device 1, latency 0.0000
 
 Device 1 is running: C, starting at time 3.0000
 Finishing at time 6.0000
 Next layers: ['output']
 Sorted next layers: ['output']
-Device 0 sends layer input output at time 3 to device 1, latency 0.0000
+Device 0 sends layer input output at time  3.0000 to device 1, latency 0.0000
 
 Device 1 is running: D, starting at time 6.0000
 Finishing at time 10.0000

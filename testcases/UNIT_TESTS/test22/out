@@ -30,57 +30,57 @@ Device 0 is running: A, starting at time 0.0000
 Finishing at time 1.0000
 Next layers: ['B', 'E']
 Sorted next layers: ['B', 'E']
-Device 0 sends layer A output at time 1 to device 1, latency 0.0050
+Device 0 sends layer A output at time  1.0000 to device 1, latency 0.0000
 
-Device 1 is running: B, starting at time 1.0050
-Finishing at time 3.0050
+Device 1 is running: B, starting at time 1.0000
+Finishing at time 3.0000
 Next layers: ['C']
 Sorted next layers: ['C']
-Device 1 sends layer B output at time 3.005 to device 0, latency 0.0100
+Device 1 sends layer B output at time  3.0000 to device 0, latency 0.0000
 
-Device 0 is running: C, starting at time 3.0150
-Finishing at time 6.0150
+Device 0 is running: C, starting at time 3.0000
+Finishing at time 6.0000
 Next layers: ['D']
 Sorted next layers: ['D']
-Device 0 sends layer C output at time 6.015 to device 1, latency 0.0150
+Device 0 sends layer C output at time  6.0000 to device 1, latency 0.0000
 
-Device 1 is running: D, starting at time 6.0300
-Finishing at time 10.0300
+Device 1 is running: D, starting at time 6.0000
+Finishing at time 10.0000
 Next layers: ['H']
 Sorted next layers: ['H']
-Device 1 sends layer D output at time 10.03 to device 0, latency 0.0200
+Device 1 sends layer D output at time  10.0000 to device 0, latency 0.0000
 
-Device 0 is running: H, starting at time 10.0500
-Dependencies NOT satisfied. Ceasing at 10.0500 on device 0
+Device 0 is running: H, starting at time 10.0000
+Dependencies NOT satisfied. Ceasing at 10.0000 on device 0
 
 
-Device 0 is running: E, starting at time 6.0150
-Finishing at time 11.0150
+Device 0 is running: E, starting at time 6.0000
+Finishing at time 11.0000
 Next layers: ['F']
 Sorted next layers: ['F']
-Device 0 sends layer E output at time 11.015 to device 1, latency 0.0250
+Device 0 sends layer E output at time  11.0000 to device 1, latency 0.0000
 
-Device 1 is running: F, starting at time 11.0400
-Finishing at time 17.0400
+Device 1 is running: F, starting at time 11.0000
+Finishing at time 17.0000
 Next layers: ['G']
 Sorted next layers: ['G']
-Device 1 sends layer F output at time 17.04 to device 0, latency 0.0300
+Device 1 sends layer F output at time  17.0000 to device 0, latency 0.0000
 
-Device 0 is running: G, starting at time 17.0700
-Finishing at time 24.0700
+Device 0 is running: G, starting at time 17.0000
+Finishing at time 24.0000
 Next layers: ['H']
 Sorted next layers: ['H']
 
-Device 0 is running: H, starting at time 24.0700
-Dependencies now satisfied. Arrival time pool: [10.049999999999999, 24.07]
-Resuming at 24.0700 on device 0
-Finishing at time 32.0700
+Device 0 is running: H, starting at time 24.0000
+Dependencies now satisfied. Arrival time pool: [10, 24]
+Resuming at 24.0000 on device 0
+Finishing at time 32.0000
 Next layers: ['output']
 Sorted next layers: ['output']
 
 [30;42m=========Time Result=========[0m
 output_layer    time (s)       
-H               32.07000       
+H               32.00000       
 
 [30;42m=========Time Result per Device=========[0m
 device          time (s)       

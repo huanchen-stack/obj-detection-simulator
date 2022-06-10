@@ -1,0 +1,115 @@
+Device parallel = True
+['0', '1', '2', '3', '4', '5']
+Device name: 0, with layers: ['input', 'rpn_mergerin', 'box_roi_poolin', 'rpn_merger', 'box_roi_pool', 'fc6', 'fc7', 'cls_score', 'bbox_pred_roi_', 'postprocess_detections', 'postprocess_resize', 'output']
+Device name: 1, with layers: []
+Device name: 2, with layers: []
+Device name: 3, with layers: []
+Device name: 4, with layers: []
+Device name: 5, with layers: []
+layer           device         
+input           0              
+rpn_mergerin    0              
+box_roi_poolin  0              
+rpn_merger      0              
+box_roi_pool    0              
+fc6             0              
+fc7             0              
+cls_score       0              
+bbox_pred_roi_  0              
+postprocess_detections 0              
+postprocess_resize 0              
+output          0              
+Layer priority: {'input': 1, 'rpn_mergerin': 1, 'box_roi_poolin': 1, 'rpn_merger': 1, 'box_roi_pool': 1, 'fc6': 1, 'fc7': 1, 'cls_score': 1, 'bbox_pred_roi_': 1, 'postprocess_detections': 1, 'postprocess_resize': 1, 'output': 100}
+
+[30;44m=========Start Simulation=========[0m
+
+Device 0 is running: input, starting at time 0.0000
+Finishing at time 0.0000
+Next layers: ['rpn_mergerin', 'box_roi_poolin']
+Sorted next layers: ['rpn_mergerin', 'box_roi_poolin']
+
+Device 0 is running: rpn_mergerin, starting at time 0.0000
+Finishing at time 0.0000
+Next layers: ['rpn_merger']
+Sorted next layers: ['rpn_merger']
+
+Device 0 is running: rpn_merger, starting at time 0.0000
+Finishing at time 0.0192
+Next layers: ['postprocess_detections']
+Sorted next layers: ['postprocess_detections']
+
+Device 0 is running: postprocess_detections, starting at time 0.0192
+Dependencies NOT satisfied. Ceasing at 0.0192 on device 0
+
+
+Device 0 is running: box_roi_poolin, starting at time 0.0192
+Finishing at time 0.0192
+Next layers: ['box_roi_pool']
+Sorted next layers: ['box_roi_pool']
+
+Device 0 is running: box_roi_pool, starting at time 0.0192
+Finishing at time 0.0234
+Next layers: ['fc6']
+Sorted next layers: ['fc6']
+
+Device 0 is running: fc6, starting at time 0.0234
+Finishing at time 0.0236
+Next layers: ['fc7']
+Sorted next layers: ['fc7']
+
+Device 0 is running: fc7, starting at time 0.0236
+Finishing at time 0.0237
+Next layers: ['cls_score', 'bbox_pred_roi_']
+Sorted next layers: ['cls_score', 'bbox_pred_roi_']
+
+Device 0 is running: cls_score, starting at time 0.0237
+Finishing at time 0.0238
+Next layers: ['postprocess_detections']
+Sorted next layers: ['postprocess_detections']
+
+Device 0 is running: postprocess_detections, starting at time 0.0238
+Dependencies NOT satisfied. Ceasing at 0.0238 on device 0
+
+
+Device 0 is running: bbox_pred_roi_, starting at time 0.0238
+Finishing at time 0.0238
+Next layers: ['postprocess_detections']
+Sorted next layers: ['postprocess_detections']
+
+Device 0 is running: postprocess_detections, starting at time 0.0238
+Dependencies now satisfied. Arrival time pool: [0.01919, 0.0237524, 0.0238428]
+Resuming at 0.0238 on device 0
+Finishing at time 0.0264
+Next layers: ['postprocess_resize']
+Sorted next layers: ['postprocess_resize']
+
+Device 0 is running: postprocess_resize, starting at time 0.0264
+Finishing at time 0.0264
+Next layers: ['output']
+Sorted next layers: ['output']
+
+[30;42m=========Time Result=========[0m
+output_layer    time (s)       
+postprocess_resize 0.02637        
+
+[30;42m=========Time Result per Device=========[0m
+device          time (s)       
+0               0.02637        
+
+[30;42m=========Mem Result=========[0m
+device          cpu sum (MB)    cpu peak (MB)   cuda sum (MB)   cuda peak (MB) 
+0               7.3584          7.356           331.10          242.7          
+1               0.0000          0.0             0.00            0.0            
+2               0.0000          0.0             0.00            0.0            
+3               0.0000          0.0             0.00            0.0            
+4               0.0000          0.0             0.00            0.0            
+5               0.0000          0.0             0.00            0.0            
+
+[30;42m=========MACs Result=========[0m
+device          macs sum (M)    macs peak (M)  
+0               0.00            0              
+1               0.00            0.0            
+2               0.00            0.0            
+3               0.00            0.0            
+4               0.00            0.0            
+5               0.00            0.0            

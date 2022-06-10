@@ -1,0 +1,13 @@
+layer_name,time,cpu_mem,cuda_mem,size,macs
+input,0,0,0,0.6021,0
+rpn_mergerin,0,0,0,0,0
+box_roi_poolin,0,0,0,0,0
+rpn_merger,0.01919,7.356,4.149,0.016,0
+box_roi_pool,0.004247,0.000376,242.7,50.18,0
+fc6,0.000118,0.000372,25.39,4.096,0
+fc7,0.0001225,0.000372,25.39,4.096,0
+cls_score,7.49E-05,0.000372,0.711,4.096,0
+bbox_pred_roi_,9.04E-05,0.000372,2.78,1.456,0
+postprocess_detections,0.002528,0.000528,29.98,0,0
+postprocess_resize,0,0,0,0,0
+output,0,0,0,0,0

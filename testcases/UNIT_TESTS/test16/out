@@ -28,26 +28,26 @@ Device 0 is running: A, starting at time 0.0000
 Finishing at time 1.0000
 Next layers: ['B', 'D']
 Sorted next layers: ['B', 'D']
-Device 0 sends layer A output at time 1 to device 1, latency 0.0050
+Device 0 sends layer A output at time  1.0000 to device 1, latency 0.0000
 
-Device 1 is running: B, starting at time 1.0050
-Finishing at time 3.0050
+Device 1 is running: B, starting at time 1.0000
+Finishing at time 3.0000
 Next layers: ['E', 'C']
 Sorted next layers: ['E', 'C']
-Device 1 sends layer B output at time 3.005 to device 0, latency 0.0100
+Device 1 sends layer B output at time  3.0000 to device 0, latency 0.0000
 
-Device 0 is running: E, starting at time 3.0150
-Dependencies NOT satisfied. Ceasing at 3.0150 on device 0
+Device 0 is running: E, starting at time 3.0000
+Dependencies NOT satisfied. Ceasing at 3.0000 on device 0
 
 
-Device 1 is running: C, starting at time 3.0050
-Finishing at time 6.0050
+Device 1 is running: C, starting at time 3.0000
+Finishing at time 6.0000
 Next layers: ['F']
 Sorted next layers: ['F']
-Device 1 sends layer C output at time 6.005 to device 0, latency 0.0150
+Device 1 sends layer C output at time  6.0000 to device 0, latency 0.0000
 
-Device 0 is running: F, starting at time 6.0200
-Dependencies NOT satisfied. Ceasing at 6.0200 on device 0
+Device 0 is running: F, starting at time 6.0000
+Dependencies NOT satisfied. Ceasing at 6.0000 on device 0
 
 
 Device 0 is running: D, starting at time 1.0000
@@ -56,14 +56,14 @@ Next layers: ['E']
 Sorted next layers: ['E']
 
 Device 0 is running: E, starting at time 5.0000
-Dependencies now satisfied. Arrival time pool: [3.0149999999999997, 5]
+Dependencies now satisfied. Arrival time pool: [3, 5]
 Resuming at 5.0000 on device 0
 Finishing at time 10.0000
 Next layers: ['F']
 Sorted next layers: ['F']
 
 Device 0 is running: F, starting at time 10.0000
-Dependencies now satisfied. Arrival time pool: [6.02, 10]
+Dependencies now satisfied. Arrival time pool: [6, 10]
 Resuming at 10.0000 on device 0
 Finishing at time 16.0000
 Next layers: ['output']

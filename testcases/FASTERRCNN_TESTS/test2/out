@@ -1,0 +1,174 @@
+Device parallel = True
+['0', '1', '2', '3', '4', '5']
+Device name: 0, with layers: ['input', 'layer_3in', 'layer_2in', 'layer_1in', 'layer_0in', 'layer_3', 'layer_2', 'layer_1', 'layer_0', 'extra', 'rpn_parallel_f0', 'rpn_parallel_f1', 'rpn_parallel_f2', 'rpn_parallel_f3', 'rpn_parallel_f4', 'rpn_merger', 'box_roi_pool', 'output']
+Device name: 1, with layers: []
+Device name: 2, with layers: []
+Device name: 3, with layers: []
+Device name: 4, with layers: []
+Device name: 5, with layers: []
+layer           device         
+input           0              
+layer_0in       0              
+layer_1in       0              
+layer_2in       0              
+layer_3in       0              
+layer_0         0              
+layer_1         0              
+layer_2         0              
+layer_3         0              
+rpn_parallel_f0 0              
+rpn_merger      0              
+rpn_parallel_f1 0              
+rpn_parallel_f2 0              
+rpn_parallel_f3 0              
+extra           0              
+rpn_parallel_f4 0              
+box_roi_pool    0              
+output          0              
+Layer priority: {'input': 1, 'layer_3in': 1, 'layer_2in': 1, 'layer_1in': 1, 'layer_0in': 1, 'layer_3': 1, 'layer_2': 1, 'layer_1': 1, 'layer_0': 1, 'extra': 1, 'rpn_parallel_f0': 1, 'rpn_parallel_f1': 1, 'rpn_parallel_f2': 1, 'rpn_parallel_f3': 1, 'rpn_parallel_f4': 1, 'rpn_merger': 1, 'box_roi_pool': 1, 'output': 100}
+
+[30;44m=========Start Simulation=========[0m
+
+Device 0 is running: input, starting at time 0.0000
+Finishing at time 0.0000
+Next layers: ['layer_0in', 'layer_1in', 'layer_2in', 'layer_3in']
+Sorted next layers: ['layer_0in', 'layer_1in', 'layer_2in', 'layer_3in']
+
+Device 0 is running: layer_0in, starting at time 0.0000
+Finishing at time 0.0000
+Next layers: ['layer_0']
+Sorted next layers: ['layer_0']
+
+Device 0 is running: layer_0, starting at time 0.0000
+Finishing at time 0.0001
+Next layers: ['rpn_parallel_f0', 'box_roi_pool']
+Sorted next layers: ['rpn_parallel_f0', 'box_roi_pool']
+
+Device 0 is running: rpn_parallel_f0, starting at time 0.0001
+Finishing at time 0.0060
+Next layers: ['rpn_merger']
+Sorted next layers: ['rpn_merger']
+
+Device 0 is running: rpn_merger, starting at time 0.0060
+Dependencies NOT satisfied. Ceasing at 0.0060 on device 0
+
+
+Device 0 is running: box_roi_pool, starting at time 0.0060
+Dependencies NOT satisfied. Ceasing at 0.0060 on device 0
+
+
+Device 0 is running: layer_1in, starting at time 0.0060
+Finishing at time 0.0060
+Next layers: ['layer_1']
+Sorted next layers: ['layer_1']
+
+Device 0 is running: layer_1, starting at time 0.0060
+Finishing at time 0.0062
+Next layers: ['rpn_parallel_f1', 'box_roi_pool']
+Sorted next layers: ['rpn_parallel_f1', 'box_roi_pool']
+
+Device 0 is running: rpn_parallel_f1, starting at time 0.0062
+Finishing at time 0.0091
+Next layers: ['rpn_merger']
+Sorted next layers: ['rpn_merger']
+
+Device 0 is running: rpn_merger, starting at time 0.0091
+Dependencies NOT satisfied. Ceasing at 0.0091 on device 0
+
+
+Device 0 is running: box_roi_pool, starting at time 0.0091
+Dependencies NOT satisfied. Ceasing at 0.0091 on device 0
+
+
+Device 0 is running: layer_2in, starting at time 0.0091
+Finishing at time 0.0091
+Next layers: ['layer_2']
+Sorted next layers: ['layer_2']
+
+Device 0 is running: layer_2, starting at time 0.0091
+Finishing at time 0.0092
+Next layers: ['rpn_parallel_f2', 'box_roi_pool']
+Sorted next layers: ['rpn_parallel_f2', 'box_roi_pool']
+
+Device 0 is running: rpn_parallel_f2, starting at time 0.0092
+Finishing at time 0.0117
+Next layers: ['rpn_merger']
+Sorted next layers: ['rpn_merger']
+
+Device 0 is running: rpn_merger, starting at time 0.0117
+Dependencies NOT satisfied. Ceasing at 0.0117 on device 0
+
+
+Device 0 is running: box_roi_pool, starting at time 0.0117
+Dependencies NOT satisfied. Ceasing at 0.0117 on device 0
+
+
+Device 0 is running: layer_3in, starting at time 0.0117
+Finishing at time 0.0117
+Next layers: ['layer_3']
+Sorted next layers: ['layer_3']
+
+Device 0 is running: layer_3, starting at time 0.0117
+Finishing at time 0.0118
+Next layers: ['rpn_parallel_f3', 'extra', 'box_roi_pool']
+Sorted next layers: ['rpn_parallel_f3', 'extra', 'box_roi_pool']
+
+Device 0 is running: rpn_parallel_f3, starting at time 0.0118
+Finishing at time 0.0142
+Next layers: ['rpn_merger']
+Sorted next layers: ['rpn_merger']
+
+Device 0 is running: rpn_merger, starting at time 0.0142
+Dependencies NOT satisfied. Ceasing at 0.0142 on device 0
+
+
+Device 0 is running: extra, starting at time 0.0142
+Finishing at time 0.0142
+Next layers: ['rpn_parallel_f4', 'box_roi_pool']
+Sorted next layers: ['rpn_parallel_f4', 'box_roi_pool']
+
+Device 0 is running: rpn_parallel_f4, starting at time 0.0142
+Finishing at time 0.0166
+Next layers: ['rpn_merger']
+Sorted next layers: ['rpn_merger']
+
+Device 0 is running: rpn_merger, starting at time 0.0166
+Dependencies now satisfied. Arrival time pool: [0.006049499999999999, 0.009141699999999999, 0.011660299999999998, 0.014156999999999998, 0.016558699999999996]
+Resuming at 0.0166 on device 0
+Finishing at time 0.0357
+Next layers: ['output', 'box_roi_pool']
+Sorted next layers: ['output', 'box_roi_pool']
+
+Device 0 is running: box_roi_pool, starting at time 0.0357
+Dependencies now satisfied. Arrival time pool: [0.006049499999999999, 0.009141699999999999, 0.011660299999999998, 0.035748699999999994]
+Resuming at 0.0357 on device 0
+Finishing at time 0.0400
+Next layers: ['output']
+Sorted next layers: ['output']
+
+[30;42m=========Time Result=========[0m
+output_layer    time (s)       
+rpn_merger      0.03575        
+box_roi_pool    0.04000        
+
+[30;42m=========Time Result per Device=========[0m
+device          time (s)       
+0               0.04000        
+
+[30;42m=========Mem Result=========[0m
+device          cpu sum (MB)    cpu peak (MB)   cuda sum (MB)   cuda peak (MB) 
+0               7.3622          7.356           1,015.39        381.5          
+1               0.0000          0.0             0.00            0.0            
+2               0.0000          0.0             0.00            0.0            
+3               0.0000          0.0             0.00            0.0            
+4               0.0000          0.0             0.00            0.0            
+5               0.0000          0.0             0.00            0.0            
+
+[30;42m=========MACs Result=========[0m
+device          macs sum (M)    macs peak (M)  
+0               0.00            0              
+1               0.00            0.0            
+2               0.00            0.0            
+3               0.00            0.0            
+4               0.00            0.0            
+5               0.00            0.0            
